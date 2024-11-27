@@ -12,6 +12,13 @@
       <Folder Include="TemplateFolders\Entities\" />
       <Folder Include="TemplateFolders\Queries\" />
       <Folder Include="TemplateFolders\QueryViews\" />
+      <Folder Include="TemplateFolders\Repositories\" />
+      <Folder Include="Users\Queries\" />
+      <Folder Include="Users\QueryViews\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Frameworks\HealthCare.Framework\HealthCare.Framework.csproj" />
     </ItemGroup>
 
 </Project>
