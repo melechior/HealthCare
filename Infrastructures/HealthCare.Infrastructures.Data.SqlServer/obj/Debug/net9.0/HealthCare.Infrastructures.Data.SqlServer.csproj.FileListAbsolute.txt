@@ -1,0 +1,12 @@
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Data.SqlServer\bin\Debug\net9.0\HealthCare.Infrastructures.Data.SqlServer.deps.json
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Data.SqlServer\bin\Debug\net9.0\HealthCare.Infrastructures.Data.SqlServer.dll
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Data.SqlServer\bin\Debug\net9.0\HealthCare.Infrastructures.Data.SqlServer.pdb
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Data.SqlServer\obj\Debug\net9.0\HealthCare.Infrastructures.Data.SqlServer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Data.SqlServer\obj\Debug\net9.0\HealthCare.Infrastructures.Data.SqlServer.AssemblyInfoInputs.cache
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Data.SqlServer\obj\Debug\net9.0\HealthCare.Infrastructures.Data.SqlServer.AssemblyInfo.cs
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Data.SqlServer\obj\Debug\net9.0\HealthCare.Infrastructures.Data.SqlServer.csproj.CoreCompileInputs.cache
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Data.SqlServer\obj\Debug\net9.0\HealthCare.Infrastructures.Data.SqlServer.sourcelink.json
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Data.SqlServer\obj\Debug\net9.0\HealthCare.Infrastructures.Data.SqlServer.dll
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Data.SqlServer\obj\Debug\net9.0\refint\HealthCare.Infrastructures.Data.SqlServer.dll
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Data.SqlServer\obj\Debug\net9.0\HealthCare.Infrastructures.Data.SqlServer.pdb
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Data.SqlServer\obj\Debug\net9.0\ref\HealthCare.Infrastructures.Data.SqlServer.dll

@@ -1,0 +1,12 @@
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Shared\bin\Debug\net9.0\HealthCare.Infrastructures.Shared.deps.json
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Shared\bin\Debug\net9.0\HealthCare.Infrastructures.Shared.dll
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Shared\bin\Debug\net9.0\HealthCare.Infrastructures.Shared.pdb
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Shared\obj\Debug\net9.0\HealthCare.Infrastructures.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Shared\obj\Debug\net9.0\HealthCare.Infrastructures.Shared.AssemblyInfoInputs.cache
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Shared\obj\Debug\net9.0\HealthCare.Infrastructures.Shared.AssemblyInfo.cs
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Shared\obj\Debug\net9.0\HealthCare.Infrastructures.Shared.csproj.CoreCompileInputs.cache
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Shared\obj\Debug\net9.0\HealthCare.Infrastructures.Shared.sourcelink.json
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Shared\obj\Debug\net9.0\HealthCare.Infrastructures.Shared.dll
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Shared\obj\Debug\net9.0\refint\HealthCare.Infrastructures.Shared.dll
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Shared\obj\Debug\net9.0\HealthCare.Infrastructures.Shared.pdb
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Shared\obj\Debug\net9.0\ref\HealthCare.Infrastructures.Shared.dll

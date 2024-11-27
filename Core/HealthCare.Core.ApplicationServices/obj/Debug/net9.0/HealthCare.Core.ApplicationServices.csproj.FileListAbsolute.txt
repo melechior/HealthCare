@@ -1,0 +1,12 @@
+D:\Projects\HealthCare\Core\HealthCare.Core.ApplicationServices\bin\Debug\net9.0\HealthCare.Core.ApplicationServices.deps.json
+D:\Projects\HealthCare\Core\HealthCare.Core.ApplicationServices\bin\Debug\net9.0\HealthCare.Core.ApplicationServices.dll
+D:\Projects\HealthCare\Core\HealthCare.Core.ApplicationServices\bin\Debug\net9.0\HealthCare.Core.ApplicationServices.pdb
+D:\Projects\HealthCare\Core\HealthCare.Core.ApplicationServices\obj\Debug\net9.0\HealthCare.Core.ApplicationServices.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\HealthCare\Core\HealthCare.Core.ApplicationServices\obj\Debug\net9.0\HealthCare.Core.ApplicationServices.AssemblyInfoInputs.cache
+D:\Projects\HealthCare\Core\HealthCare.Core.ApplicationServices\obj\Debug\net9.0\HealthCare.Core.ApplicationServices.AssemblyInfo.cs
+D:\Projects\HealthCare\Core\HealthCare.Core.ApplicationServices\obj\Debug\net9.0\HealthCare.Core.ApplicationServices.csproj.CoreCompileInputs.cache
+D:\Projects\HealthCare\Core\HealthCare.Core.ApplicationServices\obj\Debug\net9.0\HealthCare.Core.ApplicationServices.sourcelink.json
+D:\Projects\HealthCare\Core\HealthCare.Core.ApplicationServices\obj\Debug\net9.0\HealthCare.Core.ApplicationServices.dll
+D:\Projects\HealthCare\Core\HealthCare.Core.ApplicationServices\obj\Debug\net9.0\refint\HealthCare.Core.ApplicationServices.dll
+D:\Projects\HealthCare\Core\HealthCare.Core.ApplicationServices\obj\Debug\net9.0\HealthCare.Core.ApplicationServices.pdb
+D:\Projects\HealthCare\Core\HealthCare.Core.ApplicationServices\obj\Debug\net9.0\ref\HealthCare.Core.ApplicationServices.dll

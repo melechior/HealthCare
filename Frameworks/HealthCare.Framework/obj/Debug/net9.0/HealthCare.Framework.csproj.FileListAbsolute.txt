@@ -1,0 +1,16 @@
+D:\Projects\HealthCare\Frameworks\HealthCare.Framework\obj\Debug\net9.0\HealthCare.Framework.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\HealthCare\Frameworks\HealthCare.Framework\obj\Debug\net9.0\HealthCare.Framework.AssemblyInfoInputs.cache
+D:\Projects\HealthCare\Frameworks\HealthCare.Framework\obj\Debug\net9.0\HealthCare.Framework.AssemblyInfo.cs
+D:\Projects\HealthCare\Frameworks\HealthCare.Framework\obj\Debug\net9.0\HealthCare.Framework.csproj.CoreCompileInputs.cache
+D:\Projects\HealthCare\Frameworks\HealthCare.Framework\obj\Debug\net9.0\HealthCare.Framework.sourcelink.json
+D:\Projects\HealthCare\Frameworks\HealthCare.Framework\bin\Debug\net9.0\HealthCare.Framework.deps.json
+D:\Projects\HealthCare\Frameworks\HealthCare.Framework\bin\Debug\net9.0\HealthCare.Framework.dll
+D:\Projects\HealthCare\Frameworks\HealthCare.Framework\bin\Debug\net9.0\HealthCare.Framework.pdb
+D:\Projects\HealthCare\Frameworks\HealthCare.Framework\bin\Debug\net9.0\HealthCare.Infrastructures.Shared.dll
+D:\Projects\HealthCare\Frameworks\HealthCare.Framework\bin\Debug\net9.0\HealthCare.Infrastructures.Shared.pdb
+D:\Projects\HealthCare\Frameworks\HealthCare.Framework\obj\Debug\net9.0\HealthCare.Framework.csproj.AssemblyReference.cache
+D:\Projects\HealthCare\Frameworks\HealthCare.Framework\obj\Debug\net9.0\HealthCa.EA0C6CAF.Up2Date
+D:\Projects\HealthCare\Frameworks\HealthCare.Framework\obj\Debug\net9.0\HealthCare.Framework.dll
+D:\Projects\HealthCare\Frameworks\HealthCare.Framework\obj\Debug\net9.0\refint\HealthCare.Framework.dll
+D:\Projects\HealthCare\Frameworks\HealthCare.Framework\obj\Debug\net9.0\HealthCare.Framework.pdb
+D:\Projects\HealthCare\Frameworks\HealthCare.Framework\obj\Debug\net9.0\ref\HealthCare.Framework.dll

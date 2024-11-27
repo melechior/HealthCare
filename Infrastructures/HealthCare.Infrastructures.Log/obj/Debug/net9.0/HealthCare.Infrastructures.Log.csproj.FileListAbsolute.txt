@@ -1,0 +1,16 @@
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Log\bin\Debug\net9.0\HealthCare.Infrastructures.Log.deps.json
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Log\bin\Debug\net9.0\HealthCare.Infrastructures.Log.dll
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Log\bin\Debug\net9.0\HealthCare.Infrastructures.Log.pdb
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Log\obj\Debug\net9.0\HealthCare.Infrastructures.Log.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Log\obj\Debug\net9.0\HealthCare.Infrastructures.Log.AssemblyInfoInputs.cache
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Log\obj\Debug\net9.0\HealthCare.Infrastructures.Log.AssemblyInfo.cs
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Log\obj\Debug\net9.0\HealthCare.Infrastructures.Log.csproj.CoreCompileInputs.cache
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Log\obj\Debug\net9.0\HealthCare.Infrastructures.Log.sourcelink.json
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Log\obj\Debug\net9.0\HealthCare.Infrastructures.Log.dll
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Log\obj\Debug\net9.0\refint\HealthCare.Infrastructures.Log.dll
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Log\obj\Debug\net9.0\HealthCare.Infrastructures.Log.pdb
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Log\obj\Debug\net9.0\ref\HealthCare.Infrastructures.Log.dll
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Log\obj\Debug\net9.0\HealthCare.Infrastructures.Log.csproj.AssemblyReference.cache
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Log\bin\Debug\net9.0\HealthCare.Core.Domains.dll
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Log\bin\Debug\net9.0\HealthCare.Core.Domains.pdb
+D:\Projects\HealthCare\Infrastructures\HealthCare.Infrastructures.Log\obj\Debug\net9.0\HealthCa.9568E847.Up2Date
