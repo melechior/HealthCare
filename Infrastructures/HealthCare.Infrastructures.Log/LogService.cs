@@ -1,3 +1,5 @@
+using System;
+using System.Threading.Tasks;
 using HealthCare.Core.Domain.Logger;
 using Nest;
 
