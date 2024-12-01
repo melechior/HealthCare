@@ -11,7 +11,7 @@ public class UserConfig : IEntityTypeConfiguration<User>
         builder.HasKey(k => k.Id);
         builder.Property(p => p.CreationDate).IsRequired();
         builder.Property(p => p.ModifyDate).IsRequired(false);
-
+        builder.Property(p=> p.NationalId).IsRequired().HasMaxLength(10);
         builder.Property(p => p.Username).IsRequired().HasMaxLength(100);
         builder.Property(p => p.Password).IsRequired().HasMaxLength(200);
         builder.Property(p => p.FirstName).IsRequired().HasMaxLength(70);
@@ -27,6 +27,7 @@ public class UserConfig : IEntityTypeConfiguration<User>
         builder.HasData(new User
         {
             Id = 1,
+            NationalId="0063491702",
             Email = "alirezammn@yahoo.com",
             Username = "admin",
             Password = "J@farjo0n",

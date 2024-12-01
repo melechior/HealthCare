@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Folder Include="Contracts\Specifications\" />
       <Folder Include="TemplateFolders\Configs\" />
       <Folder Include="TemplateFolders\Repositories\" />
       <Folder Include="TemplateFolders\Specifications\" />
