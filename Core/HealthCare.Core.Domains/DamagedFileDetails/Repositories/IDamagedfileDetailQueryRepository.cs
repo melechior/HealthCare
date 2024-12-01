@@ -1,10 +1,8 @@
-
-using HealthCare.Core.Domains.DamagedFileDetails;
-using HealthCare.Core.Domains.DamagedFileDetails.Dto;
+using HealthCare.Core.Domains.DamagedFileDetails.Dtos;
 using HealthCare.Framework.Paging;
 using HealthCare.Infrastructures.Shared.Enums;
 
-namespace HealthCare.Core.Domains.Users.Repositories;
+namespace HealthCare.Core.Domains.DamagedFileDetails.Repositories;
 
 public interface IDamagedFileDetailQueryRepository
 {
@@ -20,9 +18,9 @@ public interface IDamagedFileDetailQueryRepository
     
     //IList<Contract> GetByFilter();
     //List<ContractInfoDto> GetContractInfo(long? contractId);
-    List<DamageFileDetailDto> GetDamageFileDetailByPersonId(long personId,long contractId);
+    //List<DamageFileDetailDto> GetDamageFileDetailByPersonId(long personId,long contractId);
 
-    DamageFileControlDto? GetDetailFromDamageFileId(long id);
+    //DamageFileControlDto? GetDetailFromDamageFileId(long id);
     long GetMaxReceiptNumber();
 
     bool IsPayment(long damageFileDetailId);
@@ -33,5 +31,5 @@ public interface IDamagedFileDetailQueryRepository
   
     decimal GetRestContractItemAmount(long contractItemId, long personageId);
 
-    public List<DamageFileDetail> GetDamageDetailId(string nationalId, DamageFileState state);
+    List<DamageFileDetail> GetDamageDetailId(string nationalId, DamageFileState state);
 }

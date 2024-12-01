@@ -139,7 +139,7 @@ public class DamageFileQueryRepository(HealthCareDbContext context) : IDamageFil
                 PersonName = $"{x.ContractOfPerson.Personage.FirstName} {x.ContractOfPerson.Personage.LastName}",
                 PersonNationalId = x.ContractOfPerson.Personage.NationalId,
   
-                DamageItemName = x.DamageItem.Name,
+                DamageItemName = x.DamageItem,
                 State = x.DamageFileState
             }).ToList();
     }
@@ -153,7 +153,7 @@ public class DamageFileQueryRepository(HealthCareDbContext context) : IDamageFil
                     DamageAmount = x.RequestedAmount,
                     DamageDate = x.DamageDate.GeorgianDateToPersianDate(),
                     PersonName = x.ContractOfPerson.Personage.FirstName + " " + x.ContractOfPerson.Personage.LastName,
-                    DamageItem = x.DamageItem.Name,
+                    DamageItem = x.DamageItem,
                     Relative = EnumHelper<Relative>.GetDisplayValue(x.ContractOfPerson.Relative),
                     MainPersonName = x.ContractOfPerson.MainPersonage.FirstName + " " +
                                      x.ContractOfPerson.MainPersonage.LastName,

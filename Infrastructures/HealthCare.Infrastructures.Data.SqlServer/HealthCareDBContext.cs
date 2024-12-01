@@ -15,10 +15,9 @@ public class HealthCareDbContext : DbContext
     }
     
     public DbSet<User> Users { get; set; }
-     public DbSet<Contract> Contracts{ get; set; }
-     public DbSet<DamageFile> DamageFiles { get; set; }
-     public DbSet<ContractOfPerson> ContractOfPeople { get; set; }
-     public  DbSet<DamageFileDetail> DamageFileDetails{get;set;}
-     public DbSet<Personage> Personages { get; set; }
-
+    public DbSet<Contract> Contracts { get; set; }
+    public DbSet<DamageFile> DamageFiles { get; set; }
+    public DbSet<ContractOfPerson> ContractOfPeople { get; set; }
+    public DbSet<DamageFileDetail> DamageFileDetails { get; set; }
+    public DbSet<Personage> Personages { get; set; }
 }

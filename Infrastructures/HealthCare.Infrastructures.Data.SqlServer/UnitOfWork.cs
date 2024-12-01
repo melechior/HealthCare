@@ -1,3 +1,4 @@
+using HealthCare.Core.Domains.DamagedFileDetails.Repositories;
 using HealthCare.Core.Domains.UnitOfWork;
 using HealthCare.Core.Domains.Users.Repositories;
 
@@ -8,15 +9,16 @@ public class UnitOfWork(HealthCareDbContext context) : IUnitOfWork
     public IUserCommandRepository UserCommandRepository { get; }
     public IUserQueryRepository UserQueryRepository { get; }
     public IContractCommandRepository ContractCommandRepository { get; }
-    public IContractofPersonCommandRepository ContractofPersonCommandRepository{ get; }
+    public IContractofPersonCommandRepository ContractOfPersonCommandRepository{ get; }
 
     public IContractOfPersonQueryRepository ContractOfPersonQueryRepository { get; }
 
     public IContractQueryRepository ContractQueryRepository { get; }
 
-    public IDamagedFileDetailCommandRepository DamagedfileDetailCommandRepository { get; }
+    public IDamagedFileDetailCommandRepository DamagedFileDetailCommandRepository { get; }
+    public IDamagedFileDetailQueryRepository DamagedFileDetailsQueryRepository { get; }
 
-    public IDamagedFileDetailQueryRepository DamagedfileDetailrQueryRepository{ get; }
+    public IDamagedFileDetailQueryRepository DamagedFileDetaileQueryRepository{ get; }
 
     public IDamageFileCommandRepository DamageFileCommandRepository { get; }
 

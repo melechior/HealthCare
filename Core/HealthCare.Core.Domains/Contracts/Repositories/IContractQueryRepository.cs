@@ -1,6 +1,3 @@
-
-
-using HealthCare.Core.Domains.Contracts.Dto;
 using HealthCare.Core.Domains.Contracts.Dtos;
 using HealthCare.Core.Domains.Contracts.Entities;
 using HealthCare.Framework.Paging;

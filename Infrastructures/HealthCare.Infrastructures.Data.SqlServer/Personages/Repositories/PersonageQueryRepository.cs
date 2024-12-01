@@ -4,6 +4,7 @@ using HealthCare.Core.Domains.Personages;
 using HealthCare.Core.Domains.Personages.Dtos;
 using HealthCare.Core.Domains.Users.Repositories;
 using HealthCare.Framework.Paging;
+using HealthCare.Infrastructures.Shared.Helpers;
 
 namespace HealthCare.Infrastructures.Data.SqlServer.Personages.Repositories;
 
@@ -59,9 +60,9 @@ public class PersonageQueryRepository(HealthCareDbContext context) : IPersonages
 
     public PagedQueryResult<PersonageDto> GetByFilter(string searchValue, int pageIndex, int pageSize)
     {
-        var specification = new PersonFirstNameOrLastNameSpecification(searchValue);
+        //var specification = new PersonFirstNameOrLastNameSpecification(searchValue);
         var query = context.Personages
-            .Where(specification.IsSatisfied())
+            //.Where(specification.IsSatisfied())
             .Select(personage => new PersonageDto
             {
                 Id = personage.Id,
@@ -169,14 +170,4 @@ public class PersonageQueryRepository(HealthCareDbContext context) : IPersonages
     //             MainParentName = $"{y.MainPersonage.FirstName} {y.MainPersonage.LastName}"
     //         }).ToList();
     // }
-}
-
-internal class PersonFirstNameOrLastNameSpecification
-{
-    private string searchValue;
-
-    public PersonFirstNameOrLastNameSpecification(string searchValue)
-    {
-        this.searchValue = searchValue;
-    }
 }

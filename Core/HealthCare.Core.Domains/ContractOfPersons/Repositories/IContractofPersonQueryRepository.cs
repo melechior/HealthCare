@@ -1,5 +1,4 @@
 
-using HealthCare.Core.Domains.ContractOfPersons.Dto;
 using HealthCare.Core.Domains.ContractOfPersons.Dtos;
 using HealthCare.Core.Domains.ContractOfPersons.Entities;
 using HealthCare.Framework.Paging;

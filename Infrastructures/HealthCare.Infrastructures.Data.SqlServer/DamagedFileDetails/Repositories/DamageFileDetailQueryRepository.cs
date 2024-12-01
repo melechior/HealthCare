@@ -1,9 +1,7 @@
-using System;
 using HealthCare.Core.Domains.DamagedFileDetails;
-using HealthCare.Core.Domains.DamagedFileDetails.Dto;
 using HealthCare.Core.Domains.DamagedFileDetails.Dtos;
+using HealthCare.Core.Domains.DamagedFileDetails.Repositories;
 using HealthCare.Core.Domains.DamageFiles.Dtos;
-using HealthCare.Core.Domains.Users.Repositories;
 using HealthCare.Framework.Paging;
 using HealthCare.Framework.Specification;
 using HealthCare.Infrastructures.Data.SqlServer.DamagedFileDetails.Specifications;
@@ -53,8 +51,7 @@ public class DamageFileDetailQueryRepository(HealthCareDbContext context) : IDam
                 DamageDate = y.DamageDate,
                 PersianDamageDate = y.DamageDate.GeorgianDateToPersianDate(),
                 DamageFileStateName = EnumHelper<DamageFileState>.GetDisplayValue(y.DamageFileState),
-                DamageItemId = y.DamageItemId,
-                DamageItemName = y.DamageItem.Name,
+                DamageItemName = y.DamageItem,
                 DamageFileDto = new DamageFileDto
                 {
                     Id = y.DamageFile.Id,
@@ -97,8 +94,7 @@ public class DamageFileDetailQueryRepository(HealthCareDbContext context) : IDam
                 DamageDate = y.DamageDate,
                 PersianDamageDate = y.DamageDate.GeorgianDateToPersianDate(),
                 DamageFileStateName = EnumHelper<DamageFileState>.GetDisplayValue(y.DamageFileState),
-                DamageItemId = y.DamageItemId,
-                DamageItemName = y.DamageItem.Name,
+                DamageItemName = y.DamageItem,
                 DamageFileDto = new DamageFileDto
                 {
                     Id = y.DamageFile.Id,
@@ -146,7 +142,7 @@ public class DamageFileDetailQueryRepository(HealthCareDbContext context) : IDam
                 PersianDamageDate = y.DamageDate.GeorgianDateToPersianDate(),
                 DamageFileStateName = EnumHelper<DamageFileState>.GetDisplayValue(y.DamageFileState),
            
-                DamageItemName = y.DamageItem.Name,
+                DamageItemName = y.DamageItem,
                 DamageFileDto = new DamageFileDto
                 {
                     Id = y.DamageFile.Id,
@@ -230,6 +226,11 @@ public class DamageFileDetailQueryRepository(HealthCareDbContext context) : IDam
         return context.DamageFileDetails.Max(x => Convert.ToInt64(x.InsuranceReceiptNumber));
     }
 
+    public bool IsPayment(long damageFileDetailId)
+    {
+        throw new NotImplementedException();
+    }
+
     // public bool IsPayment(long damageFileDetailId)
     // {
     //     return context.PaymentDamageFiles
@@ -265,7 +266,12 @@ public class DamageFileDetailQueryRepository(HealthCareDbContext context) : IDam
         throw new NotImplementedException();
     }
 
-     public List<DamageFileDetail> GetDamageDetailId(string nationalId, DamageFileState state)
+    public decimal GetRestContractItemAmount(long contractItemId, long personageId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<DamageFileDetail> GetDamageDetailId(string nationalId, DamageFileState state)
     {
         return context.DamageFileDetails
             .Include(x => x.DamageItem)
