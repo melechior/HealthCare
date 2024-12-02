@@ -14,13 +14,12 @@ public class HealthCareDbContext : DbContext
     {
         Database.Migrate();
     }
-
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(modelBuilder);
-        modelBuilder.Ignore<ContractOfPerson>();
+        modelBuilder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
     }
-
+    
     public DbSet<User> Users { get; set; }
     public DbSet<Contract> Contracts { get; set; }
     public DbSet<DamageFile> DamageFiles { get; set; }
