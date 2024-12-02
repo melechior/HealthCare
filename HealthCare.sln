@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{14BCC6F0-7110-44E3-9A11-D6EDC30FA290}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EndPoints", "EndPoints", "{C431AC25-0F5C-468D-8414-E09693F4D90D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frameworks", "Frameworks", "{EEB9C877-9F0A-4156-BEC3-912BAE774C72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{029D9244-0976-4723-8785-993FCFCD2701}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCare.Core.ApplicationServices", "Core\HealthCare.Core.ApplicationServices\HealthCare.Core.ApplicationServices.csproj", "{9A475DC8-4C58-4F97-A23E-8A2E69D3DDDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCare.Core.Domains", "Core\HealthCare.Core.Domains\HealthCare.Core.Domains.csproj", "{81B255C0-0743-44D9-8A6D-FA27C882E97C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCare.WebSite", "EndPoints\HealthCare.WebSite\HealthCare.WebSite.csproj", "{AB001745-77BA-4085-B517-82D83B8AB44B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCare.Framework", "Frameworks\HealthCare.Framework\HealthCare.Framework.csproj", "{A55F41FF-AAF9-4356-9B86-CFE5EDBB3FD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCare.Infrastructures.Data.SqlServer", "Infrastructures\HealthCare.Infrastructures.Data.SqlServer\HealthCare.Infrastructures.Data.SqlServer.csproj", "{BDBAB6BA-6A20-490B-ABFD-47319E62D4C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCare.Infrastructures.DI", "Infrastructures\HealthCare.Infrastructures.DI\HealthCare.Infrastructures.DI.csproj", "{4B3249BF-3184-4319-8029-66D433675A3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCare.Infrastructures.Log", "Infrastructures\HealthCare.Infrastructures.Log\HealthCare.Infrastructures.Log.csproj", "{81C224C9-7919-4CF4-8EF0-29D901717EEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCare.Infrastructures.Shared", "Infrastructures\HealthCare.Infrastructures.Shared\HealthCare.Infrastructures.Shared.csproj", "{029C308B-CBEE-4E8E-839A-7388412B618F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9A475DC8-4C58-4F97-A23E-8A2E69D3DDDA} = {14BCC6F0-7110-44E3-9A11-D6EDC30FA290}
+		{81B255C0-0743-44D9-8A6D-FA27C882E97C} = {14BCC6F0-7110-44E3-9A11-D6EDC30FA290}
+		{AB001745-77BA-4085-B517-82D83B8AB44B} = {C431AC25-0F5C-468D-8414-E09693F4D90D}
+		{A55F41FF-AAF9-4356-9B86-CFE5EDBB3FD8} = {EEB9C877-9F0A-4156-BEC3-912BAE774C72}
+		{BDBAB6BA-6A20-490B-ABFD-47319E62D4C9} = {029D9244-0976-4723-8785-993FCFCD2701}
+		{4B3249BF-3184-4319-8029-66D433675A3E} = {029D9244-0976-4723-8785-993FCFCD2701}
+		{81C224C9-7919-4CF4-8EF0-29D901717EEF} = {029D9244-0976-4723-8785-993FCFCD2701}
+		{029C308B-CBEE-4E8E-839A-7388412B618F} = {029D9244-0976-4723-8785-993FCFCD2701}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A475DC8-4C58-4F97-A23E-8A2E69D3DDDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A475DC8-4C58-4F97-A23E-8A2E69D3DDDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A475DC8-4C58-4F97-A23E-8A2E69D3DDDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A475DC8-4C58-4F97-A23E-8A2E69D3DDDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81B255C0-0743-44D9-8A6D-FA27C882E97C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81B255C0-0743-44D9-8A6D-FA27C882E97C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81B255C0-0743-44D9-8A6D-FA27C882E97C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81B255C0-0743-44D9-8A6D-FA27C882E97C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB001745-77BA-4085-B517-82D83B8AB44B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB001745-77BA-4085-B517-82D83B8AB44B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB001745-77BA-4085-B517-82D83B8AB44B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB001745-77BA-4085-B517-82D83B8AB44B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A55F41FF-AAF9-4356-9B86-CFE5EDBB3FD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A55F41FF-AAF9-4356-9B86-CFE5EDBB3FD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A55F41FF-AAF9-4356-9B86-CFE5EDBB3FD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A55F41FF-AAF9-4356-9B86-CFE5EDBB3FD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDBAB6BA-6A20-490B-ABFD-47319E62D4C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDBAB6BA-6A20-490B-ABFD-47319E62D4C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDBAB6BA-6A20-490B-ABFD-47319E62D4C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDBAB6BA-6A20-490B-ABFD-47319E62D4C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B3249BF-3184-4319-8029-66D433675A3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B3249BF-3184-4319-8029-66D433675A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B3249BF-3184-4319-8029-66D433675A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B3249BF-3184-4319-8029-66D433675A3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81C224C9-7919-4CF4-8EF0-29D901717EEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C224C9-7919-4CF4-8EF0-29D901717EEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C224C9-7919-4CF4-8EF0-29D901717EEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C224C9-7919-4CF4-8EF0-29D901717EEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{029C308B-CBEE-4E8E-839A-7388412B618F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{029C308B-CBEE-4E8E-839A-7388412B618F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{029C308B-CBEE-4E8E-839A-7388412B618F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{029C308B-CBEE-4E8E-839A-7388412B618F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
