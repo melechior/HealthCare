@@ -1,0 +1,17 @@
+.LA {
+    left: auto !important;
+    ;
+
+    @media (max-width:756px) {
+        left: 0 !important;
+    }
+}
+.Nav-Lable{
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 10px;
+}
+.avatar-title{padding-right:8px;padding-top: 7px;}
+
+ 

@@ -6,4 +6,29 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <TypeScriptCompile Include="wwwroot\assets\libs\@neshan-maps-platform\mapbox-gl\dist\src\core\controls.d.ts" />
+      <TypeScriptCompile Include="wwwroot\assets\libs\@neshan-maps-platform\mapbox-gl\dist\src\core\Map.d.ts" />
+      <TypeScriptCompile Include="wwwroot\assets\libs\@neshan-maps-platform\mapbox-gl\dist\src\index.d.ts" />
+      <TypeScriptCompile Include="wwwroot\assets\libs\@neshan-maps-platform\mapbox-gl\dist\src\parameters\parameters.d.ts" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.11" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.11">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.11" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.11" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Infrastructures\HealthCare.Infrastructures.Data.SqlServer\HealthCare.Infrastructures.Data.SqlServer.csproj" />
+    </ItemGroup>
+
 </Project>
