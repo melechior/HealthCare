@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HealthCare.Infrastructures.Data.SqlServer.Users.Repositories;
 
-public class UserQueryRepository(DbContext context) : IUserQueryRepository
+public class UserQueryRepository(HealthCareDbContext context) : IUserQueryRepository
 {
     public PagedQueryResult<UserDto> GetFilter(string username, string fullname, bool? isActive, string organizationName, string roleName,
         string post, int pageIndex, int pageSize, string sortName = null, string sortType = "asc")
@@ -27,6 +27,14 @@ public class UserQueryRepository(DbContext context) : IUserQueryRepository
 
     public User? GetUserByUsername(string username)
     {
-        throw new NotImplementedException();
+        return context.Users
+            .FirstOrDefault(x => x.Username == username);
+        //done
+    }
+    public User? GetUserByNationalCodeOrUserName(string NationalId, string username)
+    {
+        return context.Users
+          .FirstOrDefault(x => x.Username == username || x.NationalId == NationalId);
+        //done
     }
 }

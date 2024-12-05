@@ -1,6 +1,6 @@
 'use strict';
 const formAuthentication = document.querySelector('#formAuthentication');
-const lockForm= $("#login_form_layout");
+const lockForm = $("#login_form_layout");
 //const lockForm= $("#btnLogin");
 document.addEventListener('DOMContentLoaded', function (e) {
     (function () {

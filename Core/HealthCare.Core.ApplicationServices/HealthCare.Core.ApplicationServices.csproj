@@ -10,4 +10,8 @@
       <ProjectReference Include="..\HealthCare.Core.Domains\HealthCare.Core.Domains.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="NewFolder\" />
+    </ItemGroup>
+
 </Project>
