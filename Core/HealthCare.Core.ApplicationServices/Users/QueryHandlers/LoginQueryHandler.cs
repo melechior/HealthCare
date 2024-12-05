@@ -15,7 +15,7 @@ using HealthCare.Framework.Mapper;
 
 namespace HealthCare.Core.ApplicationServices.Users.QueryHandlers
 {
-    internal class LoginQueryHandler(IUnitOfWork unitOfWork, Settings settings)
+    public class LoginQueryHandler(IUnitOfWork unitOfWork, Settings settings)
     : IQueryHandler<LoginQuery, QueryResult<LoginQueryView>>
     {
         public QueryResult<LoginQueryView> Get(LoginQuery query)
@@ -24,7 +24,7 @@ namespace HealthCare.Core.ApplicationServices.Users.QueryHandlers
 
             try
             {
-                var user = unitOfWork.UserQueryRepository.GetUserByNationalCodeOrUserName(query.NationalId,query.Username);
+                var user = unitOfWork.UserQueryRepository.GetUserByUsername(query.Username);
                 if (user == null)
                 {
                     queryResult.Failed = true;
@@ -66,7 +66,7 @@ namespace HealthCare.Core.ApplicationServices.Users.QueryHandlers
 
                 queryResult.QueryView = Mapper.Map<User, LoginQueryView>(user);
                 queryResult.QueryView.ImageBase64 = string.IsNullOrEmpty(user.ImageAddress) || !File.Exists(user.ImageAddress)
-                    ? $"data:image/jpeg;base64,{Convert.ToBase64String(File.ReadAllBytes(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "assets", "img", "avatars", "NoImage.jpg")))}"
+                    ? $"data:image/jpeg;base64,{Convert.ToBase64String(File.ReadAllBytes(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "assets", "img", "avatars", "NoImage.PNG")))}"
                     : $"data:image/jpeg;base64,{Convert.ToBase64String(File.ReadAllBytes(user.ImageAddress))}";
             }
             catch (Exception ex)

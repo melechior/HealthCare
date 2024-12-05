@@ -1,13 +1,14 @@
 using HealthCare.Core.Domains.DamagedFileDetails.Repositories;
 using HealthCare.Core.Domains.UnitOfWork;
 using HealthCare.Core.Domains.Users.Repositories;
+using HealthCare.Infrastructures.Data.SqlServer.Users.Repositories;
 
 namespace HealthCare.Infrastructures.Data.SqlServer;
 
-public class UnitOfWork(HealthCareDbContext context) : IUnitOfWork
+public class UnitOfWork(HealthCareDbContext context, IUserQueryRepository userQueryRepository) : IUnitOfWork
 {
     public IUserCommandRepository UserCommandRepository { get; }
-    public IUserQueryRepository UserQueryRepository { get; }
+    public IUserQueryRepository UserQueryRepository { get; } = userQueryRepository;
     public IContractCommandRepository ContractCommandRepository { get; }
     public IContractofPersonCommandRepository ContractOfPersonCommandRepository{ get; }
 

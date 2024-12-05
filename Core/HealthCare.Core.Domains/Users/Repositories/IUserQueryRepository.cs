@@ -16,8 +16,7 @@ public interface IUserQueryRepository
 
     Entities.User? GetUserByUsername(string username);
 
-    Entities.User? GetUserByNationalCodeOrUserName(string nationalId,string username);
-    // List<Entities.User> GetUsersByRole(OrganizationType organizationType, long organizationId);
+       // List<Entities.User> GetUsersByRole(OrganizationType organizationType, long organizationId);
     // List<Entities.User> GetUserByActor(OrganizationType organizationType, long roleId);
     // OrganizationType GetOrganizationTypeByUserId(long id);
     // long GetMaxAmountByUserId(long id);

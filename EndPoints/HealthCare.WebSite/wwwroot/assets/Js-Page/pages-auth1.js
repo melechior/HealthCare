@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
                             }
                         }
                     },
-                    'email-username': {
+                    'NatinalId-username': {
                         validators: {
                             notEmpty: {
-                                message: 'ایمیل / نام کاربری را وارد کنید'
+                                message: ' نام کاربری / کدملی را وارد کنید'
                             },
                             stringLength: {
                                 min: 5,
@@ -117,10 +117,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
                             }
                         });
                         $.ajax({
-                            url: "/User/EnterLogin/",
+                            url: "/Login/EnterLogin/",
                             //dataType: "json",
                             data: {
-                                username: $("#email-username").val(),
+                                username: $("#NatinalId-username").val(),
                                 password: $("#password").val()
                             },
                             type: "POST",
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
                                 if (res.failed) {
                                     toast(res.resultMessages);
                                 } else {
-                                    window.location.href = "/Home/Index";
+                                    window.location.href = "/Dashboard/index";
                                 }
                             },
                             error: function (xhr) {

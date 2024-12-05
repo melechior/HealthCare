@@ -31,6 +31,14 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Infrastructures\HealthCare.Infrastructures.Data.SqlServer\HealthCare.Infrastructures.Data.SqlServer.csproj" />
+      <ProjectReference Include="..\..\Infrastructures\HealthCare.Infrastructures.DI\HealthCare.Infrastructures.DI.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="wwwroot\assets\js\pages-auth1.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

@@ -6,4 +6,15 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Autofac" Version="8.1.1" />
+      <PackageReference Include="AutoMapper" Version="13.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Core\HealthCare.Core.ApplicationServices\HealthCare.Core.ApplicationServices.csproj" />
+      <ProjectReference Include="..\..\Core\HealthCare.Core.Domains\HealthCare.Core.Domains.csproj" />
+      <ProjectReference Include="..\HealthCare.Infrastructures.Data.SqlServer\HealthCare.Infrastructures.Data.SqlServer.csproj" />
+    </ItemGroup>
+
 </Project>

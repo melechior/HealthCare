@@ -28,13 +28,8 @@ public class UserQueryRepository(HealthCareDbContext context) : IUserQueryReposi
     public User? GetUserByUsername(string username)
     {
         return context.Users
-            .FirstOrDefault(x => x.Username == username);
+          .FirstOrDefault(x => x.Username == username || x.NationalId == username);
         //done
     }
-    public User? GetUserByNationalCodeOrUserName(string NationalId, string username)
-    {
-        return context.Users
-          .FirstOrDefault(x => x.Username == username || x.NationalId == NationalId);
-        //done
-    }
+ 
 }

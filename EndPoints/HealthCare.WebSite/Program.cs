@@ -2,13 +2,13 @@ using HealthCare.Infrastructures.Data.SqlServer;
 using Microsoft.EntityFrameworkCore;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-// using HealthCare.Infrastructures.DI;
+using HealthCare.Infrastructures.DI;
 using HealthCare.Infrastructures.Shared;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
-//new ContainerBuilder().RegisterModule(new DiHandlerModule());
+new ContainerBuilder().RegisterModule(new DiHandlerModule());
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,10 +27,10 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 builder.Services.AddControllersWithViews();
 
-//builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory(
-//    containerBuilder =>
-//        containerBuilder.RegisterModule(new DiHandlerModule())
-//));
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory(
+    containerBuilder =>
+        containerBuilder.RegisterModule(new DiHandlerModule())
+));
 builder.Services.AddDbContextPool<HealthCareDbContext>(c =>
     c.UseSqlServer(builder.Configuration.GetConnectionString("HealthCareDb")));
 

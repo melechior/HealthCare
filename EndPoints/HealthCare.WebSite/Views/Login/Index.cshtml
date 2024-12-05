@@ -2,7 +2,7 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html class="layout-navbar-fixed layout-compact dark-style layout-menu-fixed" data-assets-path="../../assets/" data-template="vertical-menu-template" data-theme="theme-default" dir="rtl" lang="fa">
+<html class="light-style layout-wide customizer-hide" data-assets-path="/assets/" data-template="vertical-menu-template" data-theme="theme-default" dir="rtl" lang="fa">
 
 <head>
     <meta charset="UTF-8" />
@@ -67,16 +67,11 @@
                     <p class="mb-4">لطفا به حساب کاربری خود وارد شوید تا از امکانات سامانه استفاده کنید.</p>
                     <div class="mb-3" id="formAuthentication">
                         <div class="mb-3">
-                            <label class="form-label" for="email-username">نام کاربری</label>
-                            <input autofocus class="form-control" id="email-username" name="email-username" placeholder="نام کاربری خود را وارد کنید" type="text" />
+                            <label class="form-label" for="email">کدملی یا نام کاربری</label>
+                            <input autofocus class="form-control" id="NatinalId-username" name="NatinalId-username" placeholder="کدملی یا نام کاربری خود را وارد کنید" type="text" />
                         </div>
                         <div class="mb-3 form-password-toggle">
-                            <div class="d-flex justify-content-between">
-                                <label class="form-label" for="password">رمز عبور</label>
-                                @* <a href="auth-forgot-password-cover.html"> *@
-                                @*     <small>رمز عبور را فراموش کرده اید؟</small> *@
-                                @* </a> *@
-                            </div>
+
                             <div class="input-group input-group-merge">
                                 <input aria-describedby="password" class="form-control" id="password" name="password" placeholder="············" type="password" />
                                 <span class="input-group-text cursor-pointer">
@@ -100,25 +95,29 @@
     </div>
     <!-- / Content -->
     <!-- Core JS -->
-    <!-- build:js ../../assets/vendor/js/core.js -->
-    <script src="/../../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="/../../assets/vendor/libs/popper/popper.js"></script>
-    <script src="/../../assets/vendor/js/bootstrap.js"></script>
-    <script src="/../../assets/vendor/libs/node-waves/node-waves.js"></script>
-    <script src="/../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="/../../assets/vendor/libs/hammer/hammer.js"></script>
-    <script src="/../../assets/vendor/libs/i18n/i18n.js"></script>
-    <script src="/../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
-    <script src="/../../assets/vendor/js/menu.js"></script>
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../../assets/vendor/js/bootstrap.js"></script>
+    <script src="../../assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../../assets/vendor/libs/hammer/hammer.js"></script>
+    <script src="../../assets/vendor/libs/i18n/i18n.js"></script>
+    <script src="../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="../../assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
     <!-- Vendors JS -->
-    @*<script src="/../../assets/vendor/libs/@@form-validation/popular.js"></script>
-<script src="/../../assets/vendor/libs/@@form-validation/bootstrap5.js"></script>
-<script src="/../../assets/vendor/libs/@@form-validation/auto-focus.js"></script>*@
-    <!-- Main JS -->
-    <script src="/../../assets/js/main.js"></script>
+    <script src="../../assets/vendor/libs/toastr/toastr.js"></script>
+    <script src="../../assets/vendor/libs/block-ui/block-ui.js"></script>
     <!-- Page JS -->
-    <script src="/../../Js-Page/pages-auth.js"></script>
-</body>
+    <script src="../../assets/js/ui-toasts.js"></script>
+    <script src="../../assets/vendor/libs/@@form-validation/popular.js"></script>
+    <script src="../../assets/vendor/libs/@@form-validation/bootstrap5.js"></script>
+    <script src="../../assets/vendor/libs/@@form-validation/auto-focus.js"></script>
+    <!-- Main JS -->
+    <script src="../../assets/js/main.js"></script>
 
+    <script src=" ../../assets/Js-Page/pages-auth1.js"></script>
+    <script src="../../assets/js/main-toast.js"></script>
+</body>
 </html>
