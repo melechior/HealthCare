@@ -5,7 +5,6 @@ using Autofac.Extensions.DependencyInjection;
 using HealthCare.Infrastructures.DI;
 using HealthCare.Infrastructures.Shared;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
 new ContainerBuilder().RegisterModule(new DiHandlerModule());
@@ -16,13 +15,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-   .AddCookie(options =>
+    .AddCookie(options =>
     {
-       options.LogoutPath = "/User/logout";
-       options.LoginPath = "/login";
-       options.AccessDeniedPath = "/Home/AccessDenied";
-       options.SlidingExpiration = true;
-       options.ExpireTimeSpan = TimeSpan.FromMinutes(40); 
+        options.LogoutPath = "/User/logout";
+        options.LoginPath = "/login";
+        options.AccessDeniedPath = "/Home/AccessDenied";
+        options.SlidingExpiration = true;
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(40);
     });
 
 builder.Services.AddControllersWithViews();
@@ -34,7 +33,7 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory(
 builder.Services.AddDbContextPool<HealthCareDbContext>(c =>
     c.UseSqlServer(builder.Configuration.GetConnectionString("HealthCareDb")));
 
- 
+
 var settings = new Settings();
 new ConfigureFromConfigurationOptions<Settings>(builder.Configuration.GetSection("settings")).Configure(settings);
 builder.Services.AddSingleton(settings);
@@ -48,9 +47,12 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
     app.Urls.Add("http://0.0.0.0:6186");
-}else{
+}
+else
+{
     app.UseHttpsRedirection();
 }
+
 app.UseStaticFiles();
 
 app.UseRouting();
