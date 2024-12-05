@@ -6,4 +6,12 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\HealthCare.Infrastructures.Data.SqlServer\HealthCare.Infrastructures.Data.SqlServer.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac" Version="8.1.1" />
+    </ItemGroup>
+
 </Project>

@@ -31,6 +31,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Infrastructures\HealthCare.Infrastructures.Data.SqlServer\HealthCare.Infrastructures.Data.SqlServer.csproj" />
+      <ProjectReference Include="..\..\Infrastructures\HealthCare.Infrastructures.DI\HealthCare.Infrastructures.DI.csproj" />
     </ItemGroup>
 
 </Project>
