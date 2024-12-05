@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
                                 if (res.failed) {
                                     toast(res.resultMessages);
                                 } else {
-                                    window.location.href = "/Dashboard/index";
+                                    window.location.href = "/Dashboard";
                                 }
                             },
                             error: function (xhr) {

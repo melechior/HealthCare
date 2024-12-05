@@ -2,7 +2,7 @@
 
 namespace HealthCare.WebSite.Controllers;
 
-public class Dashboard : Controller
+public class DetailsController : Controller
 {
     // GET
     public IActionResult Index()

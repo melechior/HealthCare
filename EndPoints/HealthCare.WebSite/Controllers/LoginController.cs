@@ -29,7 +29,7 @@ public class LoginController : BaseController
             new Claim("UserId", queryResult.QueryView.Id.ToString()),
             new Claim("IsAdmin", queryResult.QueryView.IsAdmin.ToString()),
             new Claim("Username", queryResult.QueryView.Username),
-            new Claim("Image", queryResult.QueryView.ImageBase64),
+            //new Claim("Image", queryResult.QueryView.ImageBase64),
             new Claim("JobPosition", queryResult.QueryView.JobPosition),
             new Claim("Fullname", $"{queryResult.QueryView.Firstname} {queryResult.QueryView.LastName}"),
             new Claim("Email", queryResult.QueryView.Email != null ? queryResult.QueryView.Email : ""),

@@ -2,7 +2,7 @@
 
 namespace HealthCare.WebSite.Controllers;
 
-public class ChangePass : Controller
+public class ChangePassController : Controller
 {
     // GET
     public IActionResult Index()
