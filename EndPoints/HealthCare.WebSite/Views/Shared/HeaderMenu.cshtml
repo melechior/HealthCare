@@ -4,6 +4,18 @@
 @using Newtonsoft.Json
 @{
     var contractPeopleList = JsonConvert.DeserializeObject<List<ContractPeopleByNationalIdQueryView>>(Context.Session.GetString("ContractOfPeople"));
+    var selectedPersonId = Context.Session.GetString("SelectedContractPersonId");
+    ContractPeopleByNationalIdQueryView? selectedObject = null;
+    var selectedImage = "";
+    if (!string.IsNullOrEmpty(selectedPersonId))
+    {
+        selectedObject = contractPeopleList!
+            .FirstOrDefault(x => x.Id == Convert.ToInt64(selectedPersonId));
+        
+        selectedImage = selectedObject.IsMan!.Value
+            ? "../../assets/img/avatars/1.png"
+            : "../../assets/img/avatars/12.png";
+    }
 }
 <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
     <ul class="navbar-nav flex-row align-items-center  ">
@@ -16,26 +28,26 @@
             <ul class="dropdown-menu   dropdown-styles LA">
                 <li>
                     <a class="dropdown-item" data-theme="light" href="javascript:void(0);">
-                                            <span class="align-middle">
-                                                <i class="ti ti-sun me-2"></i>
-                                                روز
-                                            </span>
+                        <span class="align-middle">
+                            <i class="ti ti-sun me-2"></i>
+                            روز
+                        </span>
                     </a>
                 </li>
                 <li>
                     <a class="dropdown-item" data-theme="dark" href="javascript:void(0);">
-                                            <span class="align-middle">
-                                                <i class="ti ti-moon me-2"></i>
-                                                شب
-                                            </span>
+                        <span class="align-middle">
+                            <i class="ti ti-moon me-2"></i>
+                            شب
+                        </span>
                     </a>
                 </li>
                 <li>
                     <a class="dropdown-item" data-theme="system" href="javascript:void(0);">
-                                            <span class="align-middle">
-                                                <i class="ti ti-device-desktop me-2"></i>
-                                                سیستم
-                                            </span>
+                        <span class="align-middle">
+                            <i class="ti ti-device-desktop me-2"></i>
+                            سیستم
+                        </span>
                     </a>
                 </li>
             </ul>
@@ -48,8 +60,13 @@
             <a class="nav-link dropdown-toggle hide-arrow" data-bs-toggle="dropdown"
                href="javascript:void(0);">
                 <div class="avatar avatar-online" style="display: flex;">
-                    <img alt class="h-auto rounded-circle" src="../../assets/img/avatars/1.png"/>
-                    <span class="fw-semibold d-block h-auto avatar-title ">نوید محمدزاده</span>
+                    <img alt class="h-auto rounded-circle" src="@selectedImage"/>
+                    @if (selectedObject != null)
+                    {
+                        <span class="fw-semibold d-block h-auto avatar-title ">
+                            @($"{selectedObject.Firstname} {selectedObject.LastName} ({selectedObject.ContractName})")
+                        </span>
+                    }
                 </div>
             </a>
             <ul class="dropdown-menu LA ">
@@ -59,7 +76,7 @@
                         ? "../../assets/img/avatars/1.png"
                         : "../../assets/img/avatars/12.png";
                     <li>
-                        <a class="dropdown-item">
+                        <a class="dropdown-item customerItem" personalId="@contractPeople.Id">
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
                                     <div class="avatar avatar-online">
@@ -67,10 +84,12 @@
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <span
-                                        class="fw-semibold d-block mb-1">@($"{contractPeople.Firstname} {contractPeople.LastName}")</span>
-                                    <small
-                                        class="text-muted">@($"{EnumHelper<Relative>.GetDisplayValue(contractPeople.Relative)} ({contractPeople.ContractName})")</small>
+                                    <span class="fw-semibold d-block mb-1">
+                                        @($"{contractPeople.Firstname} {contractPeople.LastName}")
+                                    </span>
+                                    <small class="text-muted">
+                                        @($"{EnumHelper<Relative>.GetDisplayValue(contractPeople.Relative)} ({contractPeople.ContractName})")
+                                    </small>
                                 </div>
                             </div>
                         </a>
