@@ -64,7 +64,7 @@ public class ContractOfPersonQueryRepository(HealthCareDbContext context) : ICon
             .Where(x => x.MainPersonage.NationalId == nationalId)
             .Select(x => new ContractOfPersonByMainPersonDto
             {
-                Id = x.PersonageId,
+                Id = x.Id,
                 NationalId = x.Personage.NationalId,
                 Firstname = x.Personage.FirstName,
                 Lastname = x.Personage.LastName,
