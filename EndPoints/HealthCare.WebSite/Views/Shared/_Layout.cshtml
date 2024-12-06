@@ -6,7 +6,7 @@
 
     <meta content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
           name="viewport"/>
-    <title>@ViewData["TItle"]</title>
+    <title>@ViewData["Title"]</title>
     <meta content="" name="description"/>
     <!-- Favicon -->
     <link href="assets/img/favicon/favicon.ico" rel="icon" type="image/x-icon"/>
@@ -25,16 +25,16 @@
     <link href="assets/vendor/libs/node-waves/node-waves.css" rel="stylesheet"/>
     <link href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet"/>
     <link href="assets/vendor/libs/typeahead-js/typeahead.css" rel="stylesheet"/>
-    <link href="assets//vendor/libs/apex-charts/apex-charts.css" rel="stylesheet"/>
-    <link href="assets//vendor/libs/swiper/swiper.css" rel="stylesheet"/>
-    <link href="assets//vendor/libs/datatables-bs5/datatables.bootstrap5.css" rel="stylesheet"/>
-    <link href="assets//vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" rel="stylesheet"/>
-    <link href="assets//vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" rel="stylesheet"/>
-    <link href="assets//libs/flatpickr/flatpickr.css" rel="stylesheet"/>
+    <link href="assets/vendor/libs/apex-charts/apex-charts.css" rel="stylesheet"/>
+    <link href="assets/vendor/libs/swiper/swiper.css" rel="stylesheet"/>
+    <link href="assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" rel="stylesheet"/>
+    <link href="assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" rel="stylesheet"/>
+    <link href="assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" rel="stylesheet"/>
+    <link href="assets/libs/flatpickr/flatpickr.css" rel="stylesheet"/>
     <!-- Vendor -->
     @* <link href="assets/vendor/libs/@form-validation/form-validation.css" rel="stylesheet" /> *@
     <!-- Page CSS -->
-    <link href="assets//vendor/css/pages/cards-advance.css" rel="stylesheet"/>
+    <link href="assets/vendor/css/pages/cards-advance.css" rel="stylesheet"/>
     <!-- Page -->
     <link href="assets/vendor/css/pages/page-auth.css" rel="stylesheet"/>
     <!-- Helpers -->
@@ -47,8 +47,7 @@
     <!-- Better experience of RTL -->
     <link href="assets/css/rtl.css" rel="stylesheet"/>
     <!-- customize -->
-    <link href="assets//css/Styles.css" rel="stylesheet"/>
-    <link href="assets//css/Styles.css" rel="stylesheet"/>
+    <link href="assets/css/Styles.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -62,8 +61,7 @@
                 <div class="app-brand demo">
                     <a class="app-brand-link" href="index.html">
                             <span class="app-brand-logo demo">
-                                <img src="/../../assets/img/Logo/Logo.png">
-
+                                <img src="../../assets/img/Logo/Logo.png" alt="Logo"/>
                             </span>
                         <span class="app-brand-text demo menu-text fw-bold">Vuexy</span>
                     </a>
@@ -104,22 +102,18 @@
                     </a>
                 </div>
                 @{
-                    await Html.RenderPartialAsync("HeaderMenu"); 
+                    await Html.RenderPartialAsync("HeaderMenu");
                 }
                 <!-- Search Small Screens -->
             </nav>
-
             <!--   Navbar-->
             <!-- Content wrapper -->
             <div class="content-wrapper">
                 @RenderBody()
-
             </div>
-
             <footer class="border-top footer text-muted">
                 <div class="container">
-                    &copy; 2024 - HealthCare.WebSite - <a asp-area="" asp-controller="Login"
-                                                          asp-action="Privacy">Privacy</a>
+                    &copy; 2024 - HealthCare.WebSite - <a asp-area="" asp-controller="Login" asp-action="Privacy">Privacy</a>
                 </div>
             </footer>
         </div>
@@ -144,11 +138,11 @@
 <!-- Page JS -->
 <script src="../../assets/js/pages-auth.js"></script>
 
-<script src="../../assets//vendor/libs/apex-charts/apexcharts.js"></script>
-<script src="../../assets//vendor/libs/swiper/swiper.js"></script>
+<script src="../../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+<script src="../../assets/vendor/libs/swiper/swiper.js"></script>
 
-<script src="../../assets//vendor/libs/datatables-bs5/i18n/fa.js"></script>
-<script src="../../assets//js/dashboards-analytics.js"></script>
+<script src="../../assets/vendor/libs/datatables-bs5/i18n/fa.js"></script>
+<script src="../../assets/js/dashboards-analytics.js"></script>
 
 <!-- Vendors JS -->
 <script src="../../assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
@@ -158,8 +152,6 @@
 <script src="../../assets/libs/jdate/jdate.js"></script>
 <script src="../../assets/libs/flatpickr/flatpickr-jalali.js"></script>
 <script src="../../assets/libs/flatpickr/l10n/fa.js"></script>
-
-
 </body>
 
 </html>

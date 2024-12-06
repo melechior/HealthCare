@@ -48,22 +48,22 @@
             <a class="nav-link dropdown-toggle hide-arrow" data-bs-toggle="dropdown"
                href="javascript:void(0);">
                 <div class="avatar avatar-online" style="display: flex;">
-                    <img alt class="h-auto rounded-circle" src="../../assets//img/avatars/1.png"/>
-                    <span class="fw-semibold d-block h-auto  avatar-title ">نوید
-                                            محمدزاده</span>
+                    <img alt class="h-auto rounded-circle" src="../../assets/img/avatars/1.png"/>
+                    <span class="fw-semibold d-block h-auto avatar-title ">نوید محمدزاده</span>
                 </div>
             </a>
             <ul class="dropdown-menu LA ">
                 @foreach (var contractPeople in contractPeopleList!)
                 {
-                    var image = contractPeople.IsMan!.Value ? "../../assets/img/avatars/1.png" : "../../assets/img/avatars/12.png";
+                    var image = contractPeople.IsMan!.Value
+                        ? "../../assets/img/avatars/1.png"
+                        : "../../assets/img/avatars/12.png";
                     <li>
                         <a class="dropdown-item">
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
                                     <div class="avatar avatar-online">
-                                        <img alt class="h-auto rounded-circle"
-                                             src="@image"/>
+                                        <img alt class="h-auto rounded-circle" src="@image"/>
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
