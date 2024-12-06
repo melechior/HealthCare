@@ -19,14 +19,16 @@ public class LoginController : BaseController
     {
         return View();
     }
+
     [AllowAnonymous]
     [HttpPost]
     public JsonResult EnterLogin(LoginQuery query)
     {
         var queryResult = QueryDispatcher.Dispatch<QueryResult<LoginQueryView>>(query);
         var queryNI = new ContractPeopleByNationalIdQuery { NationalId = queryResult.QueryView.NationalId };
-        var contractOfPeople = QueryDispatcher.Dispatch<QueryResult<List<ContractPeopleByNationalIdQueryQueryViews>>>(queryNI);
-        
+        var contractOfPeople =
+            QueryDispatcher.Dispatch<QueryResult<List<ContractPeopleByNationalIdQueryQueryViews>>>(queryNI);
+
         if (queryResult.Failed) return Json(queryResult);
         var claims = new List<Claim>
         {
@@ -39,7 +41,6 @@ public class LoginController : BaseController
             new Claim("Email", queryResult.QueryView.Email != null ? queryResult.QueryView.Email : ""),
             new Claim("LeatestLoginDate", DateTime.Now.GeorgianDateToPersianDate()),
             new Claim("LeatestLoginTime", DateTime.Now.ToShortTimeString()),
-             
         };
 
         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -49,6 +50,8 @@ public class LoginController : BaseController
             IsPersistent = query.MemberMe,
             ExpiresUtc = DateTime.UtcNow.AddMinutes(120),
         };
+
+        HttpContext.Session.SetString("SelectedContractPersonId", queryResult.QueryView.Id.ToString());
 
         HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
             new ClaimsPrincipal(claimsIdentity), authProperties);
@@ -63,4 +66,11 @@ public class LoginController : BaseController
         return Redirect($"/Login/Index");
     }
 
+    [Authorize]
+    [HttpPost]
+    public IActionResult ChangeSelectedPersonId(long id)
+    {
+        HttpContext.Session.SetString("SelectedContractPersonId", id.ToString());
+        return Ok();
+    }
 }

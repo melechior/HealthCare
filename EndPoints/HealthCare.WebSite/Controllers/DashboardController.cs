@@ -7,6 +7,7 @@ public class DashboardController : Controller
     // GET
     public IActionResult Index()
     {
+        HttpContext.Session.Get("SelectedContractPersonId");
         return View();
     }
 }
