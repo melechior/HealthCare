@@ -68,7 +68,9 @@ public class ContractOfPersonQueryRepository(HealthCareDbContext context) : ICon
                 NationalId = x.Personage.NationalId,
                 Firstname = x.Personage.FirstName,
                 Lastname = x.Personage.LastName,
-                ContractName = x.Contract.Name
+                ContractName = x.Contract.Name,
+                Relative = x.Relative,
+                IsMan = x.Personage.IsMan,
             }).ToList();
     }
 

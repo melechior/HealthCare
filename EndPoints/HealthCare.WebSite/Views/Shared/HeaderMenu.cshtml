@@ -1,4 +1,6 @@
 @using HealthCare.Core.Domains.ContractOfPersons.QueryViews
+@using HealthCare.Infrastructures.Shared.Enums
+@using HealthCare.Infrastructures.Shared.Helpers
 @using Newtonsoft.Json
 @{
     var contractPeopleList = JsonConvert.DeserializeObject<List<ContractPeopleByNationalIdQueryView>>(Context.Session.GetString("ContractOfPeople"));
@@ -54,18 +56,21 @@
             <ul class="dropdown-menu LA ">
                 @foreach (var contractPeople in contractPeopleList!)
                 {
+                    var image = contractPeople.IsMan!.Value ? "../../assets/img/avatars/1.png" : "../../assets/img/avatars/12.png";
                     <li>
-                        <a class="dropdown-item" href="pages-account-settings-account.html">
+                        <a class="dropdown-item">
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
                                     <div class="avatar avatar-online">
                                         <img alt class="h-auto rounded-circle"
-                                             src="../../assets//img/avatars/1.png"/>
+                                             src="@image"/>
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <span class="fw-semibold d-block mb-1">نوید محمدزاده</span>
-                                    <small class="text-muted">سرپرست</small>
+                                    <span
+                                        class="fw-semibold d-block mb-1">@($"{contractPeople.Firstname} {contractPeople.LastName}")</span>
+                                    <small
+                                        class="text-muted">@($"{EnumHelper<Relative>.GetDisplayValue(contractPeople.Relative)} ({contractPeople.ContractName})")</small>
                                 </div>
                             </div>
                         </a>
