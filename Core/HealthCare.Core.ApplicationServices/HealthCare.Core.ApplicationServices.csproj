@@ -12,6 +12,7 @@
 
     <ItemGroup>
       <Folder Include="ContractOfPersons\CommandHandlers\" />
+      <Folder Include="DamagedFileDetails\CommandHandlers\" />
     </ItemGroup>
 
 </Project>

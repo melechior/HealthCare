@@ -1,27 +1,28 @@
 @{
     Layout = "_Layout";
-    ViewData["Title"]="اطلاعات تکمیلی";
+    ViewData["Title"] = "اطلاعات تکمیلی";
 }
-    <div class="container-xxl flex-grow-1 container-p-y">
-
-                        <!-- Ajax Sourced Server-side -->
-                        <div class="card">
-                            <h5 class="card-header">اطلاعات تکمیلی</h5>
-                            <div class="card-datatable text-nowrap">
-                                <table class="datatables-ajax table">
-                                    <thead>
-                                        <tr>
-                                            <th>نام بیمه گذار</th>
-                                            <th>شماره رسید</th>
-                                            <th>نوع هزینه</th>
-                                            <th>تاریخ هزینه </th>
-                                            <th>مبلغ هزینه</th>
-                                            <th>وضعیت</th>
-                                            <th>عملیات</th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                        </div>
-                        <!--/ Ajax Sourced Server-side -->
-                    </div>
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="card">
+        <div class="card-datatable table-responsive pt-0">
+            <table class="datatables-basic table dt-column-search" id="damage_file_id">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>نام قرارداد</th>
+                    <th>نام بیمه گذار</th>
+                    <th>شماره رسید</th>
+                    <th>نوع هزینه</th>
+                    <th>تاریخ هزینه</th>
+                    <th>مبلغ هزینه</th>
+                    <th>وضعیت</th>
+                    <th></th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+@section js{
+    <script type="text/javascript" src = "../../assets/js/pages-js/details/app-details-list.js"></script>
+}

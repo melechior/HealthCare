@@ -20,6 +20,6 @@ internal class DamageFileDetailByPersonSpecification(long? personId)
             return x => true;
         }
 
-        return p => p.ContractOfPerson.PersonageId == personId.Value;
+        return p => p.ContractOfPerson.Id == personId.Value;
     }
 }

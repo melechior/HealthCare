@@ -48,6 +48,7 @@
     <link href="assets/css/rtl.css" rel="stylesheet"/>
     <!-- customize -->
     <link href="assets/css/Styles.css" rel="stylesheet"/>
+    @await RenderSectionAsync(name: "css", required: false);
 </head>
 
 <body>
@@ -153,6 +154,7 @@
 <script src="../../assets/libs/flatpickr/flatpickr-jalali.js"></script>
 <script src="../../assets/libs/flatpickr/l10n/fa.js"></script>
 <script src="../../assets/js/pages-js/mainPage.js"></script>
+@await RenderSectionAsync(name: "js", required: false);
 </body>
 
 </html>

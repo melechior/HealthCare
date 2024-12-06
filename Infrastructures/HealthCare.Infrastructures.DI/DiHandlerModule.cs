@@ -7,10 +7,16 @@ using HealthCare.Framework.Queries;
 using HealthCare.Core.ApplicationServices.Users.QueryHandlers;
 using HealthCare.Core.Domains.Users.Repositories;
 using HealthCare.Core.ApplicationServices.ContractOfPersons.QueryHandlers;
+using HealthCare.Core.ApplicationServices.DamagedFileDetails.QueryHandlers;
 using HealthCare.Core.Domains.ContractOfPersons.Queries;
 using HealthCare.Core.Domains.ContractOfPersons.QueryViews;
+using HealthCare.Core.Domains.DamagedFileDetails.Queries;
+using HealthCare.Core.Domains.DamagedFileDetails.QueryViews;
+using HealthCare.Core.Domains.DamagedFileDetails.Repositories;
+using HealthCare.Framework.Paging;
 using HealthCare.Infrastructures.Data.SqlServer;
 using HealthCare.Infrastructures.Data.SqlServer.ContractOfPersons.Repositories;
+using HealthCare.Infrastructures.Data.SqlServer.DamagedFileDetails.Repositories;
 using HealthCare.Infrastructures.Data.SqlServer.Users.Repositories;
 
 namespace HealthCare.Infrastructures.DI;
@@ -31,14 +37,18 @@ public class DiHandlerModule : Module
 
         builder.RegisterType<UserCommandRepository>().As<IUserCommandRepository>().InstancePerDependency();
         builder.RegisterType<UserQueryRepository>().As<IUserQueryRepository>().InstancePerDependency();
+        
         builder.RegisterType<ContractOfPersonCommandRepository>().As<IContractofPersonCommandRepository>()
             .InstancePerDependency();
+        
         builder.RegisterType<ContractOfPersonQueryRepository>().As<IContractOfPersonQueryRepository>()
+            .InstancePerDependency();
+        
+        builder.RegisterType<DamageFileDetailQueryRepository>().As<IDamagedFileDetailQueryRepository>()
             .InstancePerDependency();
 
         #endregion
-
-
+        
         #region Query Handler Di
 
         #region User
@@ -59,6 +69,13 @@ public class DiHandlerModule : Module
                 QueryResult<List<ContractPeopleByNationalIdQueryView>>>>()
             .InstancePerDependency();
 
+        #endregion
+        
+        #region damageFileDetails
+        builder.RegisterType<DamageFileDetailByStateQueryHandler>()
+            .As<IQueryHandler<DamageFileDetailByStateQuery,
+                QueryResult<PagedQueryResult<DamageFileDetailByStateQueryView>>>>()
+            .InstancePerDependency();
         #endregion
 
         #endregion

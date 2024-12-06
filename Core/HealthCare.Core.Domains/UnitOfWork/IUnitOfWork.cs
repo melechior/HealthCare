@@ -13,7 +13,7 @@ public interface IUnitOfWork
     IContractCommandRepository ContractCommandRepository{get;}
     IContractQueryRepository ContractQueryRepository{get;}
     IDamagedFileDetailCommandRepository DamagedFileDetailCommandRepository{get;}
-    IDamagedFileDetailQueryRepository DamagedFileDetailsQueryRepository{get;}
+    IDamagedFileDetailQueryRepository DamagedFileDetailQueryRepository{get;}
     IDamageFileCommandRepository DamageFileCommandRepository{get;}
     IDamageFileQueryRepository DamageFileQueryRepository{get;}
     IPersonagesCommandRepository PersonagesCommandRepository{get;}

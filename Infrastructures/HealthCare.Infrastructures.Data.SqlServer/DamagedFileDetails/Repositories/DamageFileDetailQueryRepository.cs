@@ -141,7 +141,6 @@ public class DamageFileDetailQueryRepository(HealthCareDbContext context) : IDam
                 DamageDate = y.DamageDate,
                 PersianDamageDate = y.DamageDate.GeorgianDateToPersianDate(),
                 DamageFileStateName = EnumHelper<DamageFileState>.GetDisplayValue(y.DamageFileState),
-           
                 DamageItemName = y.DamageItem,
                 DamageFileDto = new DamageFileDto
                 {
