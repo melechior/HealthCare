@@ -59,6 +59,18 @@ public class ContractOfPersonQueryRepository(HealthCareDbContext context) : ICon
             }).ToList();
     }
 
+    public List<ContractOfPersonByMainPersonDto> GetContractOfPersonByMainPersonNationalId(string nationalId)
+    {
+        return context.ContractOfPeople.Where(x => x.MainPersonage.NationalId == nationalId)
+            .Select(x => new ContractOfPersonByMainPersonDto
+            {
+                Id = x.PersonageId,
+                NationalId = x.Personage.NationalId,
+                Firsname = x.Personage.FirstName,
+                Lastname = x.Personage.LastName,
+            }).ToList();
+    }
+
     public List<InsuranceContractPersonDto> GetInsuranceContract(long contractId)
     {
         var pc = new PersianCalendar();

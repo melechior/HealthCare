@@ -1,10 +1,12 @@
-﻿using HealthCare.Framework.Queries;
+﻿using HealthCare.Core.Domains.Personages.QueryViews;
+using HealthCare.Framework.Queries;
  
 
 namespace HealthCare.Core.Domains.Users.QueryViews
 {
     public class LoginQueryView : QueryView
     {
+        public string NationalId { get; set; }
         public string Username { get; set; }
         public string Firstname { get; set; }
         public string LastName { get; set; }

@@ -65,9 +65,9 @@ namespace HealthCare.Core.ApplicationServices.Users.QueryHandlers
                 }
 
                 queryResult.QueryView = Mapper.Map<User, LoginQueryView>(user);
-                queryResult.QueryView.ImageBase64 = string.IsNullOrEmpty(user.ImageAddress) || !File.Exists(user.ImageAddress)
-                    ? $"data:image/jpeg;base64,{Convert.ToBase64String(File.ReadAllBytes(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "assets", "img", "avatars", "NoImage.PNG")))}"
-                    : $"data:image/jpeg;base64,{Convert.ToBase64String(File.ReadAllBytes(user.ImageAddress))}";
+                //queryResult.QueryView.ImageBase64 = string.IsNullOrEmpty(user.ImageAddress) || !File.Exists(user.ImageAddress)
+                //    ? $"data:image/jpeg;base64,{Convert.ToBase64String(File.ReadAllBytes(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "assets", "img", "avatars", "NoImage.PNG")))}"
+                //    : $"data:image/jpeg;base64,{Convert.ToBase64String(File.ReadAllBytes(user.ImageAddress))}";
             }
             catch (Exception ex)
             {

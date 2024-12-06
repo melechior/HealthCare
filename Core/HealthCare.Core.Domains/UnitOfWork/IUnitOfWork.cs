@@ -9,6 +9,7 @@ public interface IUnitOfWork
     IUserQueryRepository UserQueryRepository { get; }
     IContractofPersonCommandRepository ContractOfPersonCommandRepository{get;}
     IContractOfPersonQueryRepository ContractOfPersonQueryRepository{get;}
+    //IContractOfPersonQueryRepository GetContractOfPersonByMainPersonNationalId { get; }
     IContractCommandRepository ContractCommandRepository{get;}
     IContractQueryRepository ContractQueryRepository{get;}
     IDamagedFileDetailCommandRepository DamagedFileDetailCommandRepository{get;}

@@ -5,15 +5,16 @@ using HealthCare.Infrastructures.Data.SqlServer.Users.Repositories;
 
 namespace HealthCare.Infrastructures.Data.SqlServer;
 
-public class UnitOfWork(HealthCareDbContext context, IUserQueryRepository userQueryRepository) : IUnitOfWork
+public class UnitOfWork(HealthCareDbContext context,
+    IUserQueryRepository userQueryRepository
+    , IContractOfPersonQueryRepository contractOfPersonQueryRepository
+    ): IUnitOfWork
 {
     public IUserCommandRepository UserCommandRepository { get; }
     public IUserQueryRepository UserQueryRepository { get; } = userQueryRepository;
     public IContractCommandRepository ContractCommandRepository { get; }
     public IContractofPersonCommandRepository ContractOfPersonCommandRepository{ get; }
-
-    public IContractOfPersonQueryRepository ContractOfPersonQueryRepository { get; }
-
+    public IContractOfPersonQueryRepository ContractOfPersonQueryRepository { get; } = contractOfPersonQueryRepository;
     public IContractQueryRepository ContractQueryRepository { get; }
 
     public IDamagedFileDetailCommandRepository DamagedFileDetailCommandRepository { get; }
@@ -29,6 +30,7 @@ public class UnitOfWork(HealthCareDbContext context, IUserQueryRepository userQu
 
     public IPersonagesQueryRepository PersonagesQueryRepository { get; }
 
+  
     public int Commit()
     {
         return context.SaveChanges();

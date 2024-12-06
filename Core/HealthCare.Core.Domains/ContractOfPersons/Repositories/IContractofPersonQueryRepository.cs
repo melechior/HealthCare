@@ -12,5 +12,6 @@ public interface IContractOfPersonQueryRepository
     IList<ContractOfPerson> GetByFilter(long? contractId = null);
     ContractOfPerson GetContractOfPerson(long contractId,long personId);
     List<ContractOfPersonByMainPersonDto> GetContractOfPersonByMainPerson(long contractId, long personId);
+    List<ContractOfPersonByMainPersonDto> GetContractOfPersonByMainPersonNationalId(string nationalId);
     List<InsuranceContractPersonDto> GetInsuranceContract(long contractId);
 }

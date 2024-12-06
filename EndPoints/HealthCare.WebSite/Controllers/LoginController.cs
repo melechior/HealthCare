@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using HealthCare.Core.Domains.Users.Queries;
 using HealthCare.Core.Domains.Users.QueryViews;
+using HealthCare.Core.Domains.ContractOfPersons.QueryViews;
+using HealthCare.Core.Domains.ContractOfPersons.Queries;
 
 namespace HealthCare.WebSite.Controllers;
 
@@ -22,7 +24,9 @@ public class LoginController : BaseController
     public JsonResult EnterLogin(LoginQuery query)
     {
         var queryResult = QueryDispatcher.Dispatch<QueryResult<LoginQueryView>>(query);
-
+        var queryNI = new ContractPeopleByNationalIdQuery { NationalId = queryResult.QueryView.NationalId };
+        var contractOfPeople = QueryDispatcher.Dispatch<QueryResult<List<ContractPeopleByNationalIdQueryQueryViews>>>(queryNI);
+        
         if (queryResult.Failed) return Json(queryResult);
         var claims = new List<Claim>
         {
@@ -35,7 +39,7 @@ public class LoginController : BaseController
             new Claim("Email", queryResult.QueryView.Email != null ? queryResult.QueryView.Email : ""),
             new Claim("LeatestLoginDate", DateTime.Now.GeorgianDateToPersianDate()),
             new Claim("LeatestLoginTime", DateTime.Now.ToShortTimeString()),
-            //new Claim (ClaimTypes.Role,"Admin"),
+             
         };
 
         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
