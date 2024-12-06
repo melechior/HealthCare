@@ -1,10 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HealthCare.WebSite.Controllers;
 
-public class DashboardController : Controller
+[Authorize]
+public class DashboardController : BaseController
 {
     // GET
+    [Authorize]
+    [HttpGet]
     public IActionResult Index()
     {
         HttpContext.Session.Get("SelectedContractPersonId");

@@ -1,7 +1,6 @@
 using System;
 using System.Globalization;
 using HealthCare.Core.Domains.ContractOfPersons.Dtos;
- 
 using HealthCare.Core.Domains.ContractOfPersons.Entities;
 using HealthCare.Core.Domains.Users.Repositories;
 using HealthCare.Framework.Paging;
@@ -54,20 +53,22 @@ public class ContractOfPersonQueryRepository(HealthCareDbContext context) : ICon
             {
                 Id = x.PersonageId,
                 NationalId = x.Personage.NationalId,
-                Firsname = x.Personage.FirstName,
+                Firstname = x.Personage.FirstName,
                 Lastname = x.Personage.LastName,
             }).ToList();
     }
 
     public List<ContractOfPersonByMainPersonDto> GetContractOfPersonByMainPersonNationalId(string nationalId)
     {
-        return context.ContractOfPeople.Where(x => x.MainPersonage.NationalId == nationalId)
+        return context.ContractOfPeople
+            .Where(x => x.MainPersonage.NationalId == nationalId)
             .Select(x => new ContractOfPersonByMainPersonDto
             {
                 Id = x.PersonageId,
                 NationalId = x.Personage.NationalId,
-                Firsname = x.Personage.FirstName,
+                Firstname = x.Personage.FirstName,
                 Lastname = x.Personage.LastName,
+                ContractName = x.Contract.Name
             }).ToList();
     }
 
@@ -82,19 +83,19 @@ public class ContractOfPersonQueryRepository(HealthCareDbContext context) : ICon
                 Mobile = x.Personage.MobileNumber,
                 BSKind = x.PersonageId == x.MainPersonageId ? 31 : 32,
                 Name = x.Personage.FirstName,
-            
+
                 Tarh = x.Contract.Name.Contains("VIP") ? 2 : 1,
-    
+
                 BirthDay = pc.GetDayOfMonth(x.Personage.Birthdate!.Value),
                 BirthMonth = pc.GetMonth(x.Personage.Birthdate.Value),
                 CodeMelli = x.Personage.NationalId,
                 BirthYear = pc.GetYear(x.Personage.Birthdate.Value),
-        
+
                 FatherName = x.Personage.FatherName,
                 LName = x.Personage.FirstName,
                 IdentityNo = x.Personage.BirthCertificateNumber,
                 TakafolKind = 21,
-     
+
                 PersonelCode = x.MainPersonage.NationalId,
                 MainNationalId = x.MainPersonage.NationalId,
             }).ToList();

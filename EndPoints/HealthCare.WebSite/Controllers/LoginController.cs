@@ -9,6 +9,7 @@ using HealthCare.Core.Domains.Users.Queries;
 using HealthCare.Core.Domains.Users.QueryViews;
 using HealthCare.Core.Domains.ContractOfPersons.QueryViews;
 using HealthCare.Core.Domains.ContractOfPersons.Queries;
+using Newtonsoft.Json;
 
 namespace HealthCare.WebSite.Controllers;
 
@@ -25,9 +26,7 @@ public class LoginController : BaseController
     public JsonResult EnterLogin(LoginQuery query)
     {
         var queryResult = QueryDispatcher.Dispatch<QueryResult<LoginQueryView>>(query);
-        var queryNI = new ContractPeopleByNationalIdQuery { NationalId = queryResult.QueryView.NationalId };
-        var contractOfPeople =
-            QueryDispatcher.Dispatch<QueryResult<List<ContractPeopleByNationalIdQueryQueryViews>>>(queryNI);
+
 
         if (queryResult.Failed) return Json(queryResult);
         var claims = new List<Claim>
@@ -38,9 +37,9 @@ public class LoginController : BaseController
             //new Claim("Image", queryResult.QueryView.ImageBase64),
             new Claim("JobPosition", queryResult.QueryView.JobPosition),
             new Claim("Fullname", $"{queryResult.QueryView.Firstname} {queryResult.QueryView.LastName}"),
-            new Claim("Email", queryResult.QueryView.Email != null ? queryResult.QueryView.Email : ""),
-            new Claim("LeatestLoginDate", DateTime.Now.GeorgianDateToPersianDate()),
-            new Claim("LeatestLoginTime", DateTime.Now.ToShortTimeString()),
+            //new Claim("Email", queryResult.QueryView.Email != null ? queryResult.QueryView.Email : ""),
+            new Claim("LatestLoginDate", DateTime.Now.GeorgianDateToPersianDate()),
+            new Claim("LatestLoginTime", DateTime.Now.ToShortTimeString()),
         };
 
         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -51,10 +50,17 @@ public class LoginController : BaseController
             ExpiresUtc = DateTime.UtcNow.AddMinutes(120),
         };
 
-        HttpContext.Session.SetString("SelectedContractPersonId", queryResult.QueryView.Id.ToString());
+        var contractOfPeople =
+            QueryDispatcher.Dispatch<QueryResult<List<ContractPeopleByNationalIdQueryView>>>(
+                new ContractPeopleByNationalIdQuery
+                {
+                    NationalId = queryResult.QueryView.NationalId
+                });
 
-        HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
-            new ClaimsPrincipal(claimsIdentity), authProperties);
+        HttpContext.Session.SetString("ContractOfPeople", JsonConvert.SerializeObject(contractOfPeople.QueryView));
+
+        HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity),
+            authProperties);
 
         return Json(queryResult);
     }

@@ -1,0 +1,81 @@
+@using HealthCare.Core.Domains.ContractOfPersons.QueryViews
+@using Newtonsoft.Json
+@{
+    var contractPeopleList = JsonConvert.DeserializeObject<List<ContractPeopleByNationalIdQueryView>>(Context.Session.GetString("ContractOfPeople"));
+}
+<div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+    <ul class="navbar-nav flex-row align-items-center  ">
+        <!-- Style Switcher -->
+        <li class="nav-item dropdown-style-switcher dropdown me-2 me-xl-0">
+            <a class="nav-link dropdown-toggle hide-arrow" data-bs-toggle="dropdown"
+               href="javascript:void(0);">
+                <i class="ti ti-md"></i>
+            </a>
+            <ul class="dropdown-menu   dropdown-styles LA">
+                <li>
+                    <a class="dropdown-item" data-theme="light" href="javascript:void(0);">
+                                            <span class="align-middle">
+                                                <i class="ti ti-sun me-2"></i>
+                                                روز
+                                            </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" data-theme="dark" href="javascript:void(0);">
+                                            <span class="align-middle">
+                                                <i class="ti ti-moon me-2"></i>
+                                                شب
+                                            </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" data-theme="system" href="javascript:void(0);">
+                                            <span class="align-middle">
+                                                <i class="ti ti-device-desktop me-2"></i>
+                                                سیستم
+                                            </span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item  ">
+            <span class="bg-label-warning Nav-Lable">انتخاب بیمه گذار :</span>
+        </li>
+        <!-- Lable -->
+        <li class="nav-item navbar-dropdown dropdown-user dropdown">
+            <a class="nav-link dropdown-toggle hide-arrow" data-bs-toggle="dropdown"
+               href="javascript:void(0);">
+                <div class="avatar avatar-online" style="display: flex;">
+                    <img alt class="h-auto rounded-circle" src="../../assets//img/avatars/1.png"/>
+                    <span class="fw-semibold d-block h-auto  avatar-title ">نوید
+                                            محمدزاده</span>
+                </div>
+            </a>
+            <ul class="dropdown-menu LA ">
+                @foreach (var contractPeople in contractPeopleList!)
+                {
+                    <li>
+                        <a class="dropdown-item" href="pages-account-settings-account.html">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="avatar avatar-online">
+                                        <img alt class="h-auto rounded-circle"
+                                             src="../../assets//img/avatars/1.png"/>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <span class="fw-semibold d-block mb-1">نوید محمدزاده</span>
+                                    <small class="text-muted">سرپرست</small>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="dropdown-divider"></div>
+                    </li>
+                }
+            </ul>
+        </li>
+        <!--/ User -->
+    </ul>
+</div>

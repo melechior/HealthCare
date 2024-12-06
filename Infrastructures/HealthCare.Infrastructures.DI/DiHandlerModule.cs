@@ -12,6 +12,7 @@ using HealthCare.Core.Domains.ContractOfPersons.QueryViews;
 using HealthCare.Infrastructures.Data.SqlServer;
 using HealthCare.Infrastructures.Data.SqlServer.ContractOfPersons.Repositories;
 using HealthCare.Infrastructures.Data.SqlServer.Users.Repositories;
+
 namespace HealthCare.Infrastructures.DI;
 
 public class DiHandlerModule : Module
@@ -27,31 +28,37 @@ public class DiHandlerModule : Module
         #endregion
 
         #region Repository Di
+
         builder.RegisterType<UserCommandRepository>().As<IUserCommandRepository>().InstancePerDependency();
         builder.RegisterType<UserQueryRepository>().As<IUserQueryRepository>().InstancePerDependency();
-        builder.RegisterType<ContractOfPersonCommandRepository>().As<IContractofPersonCommandRepository>().InstancePerDependency();
-        builder.RegisterType<ContractOfPersonQueryRepository>().As<IContractOfPersonQueryRepository>().InstancePerDependency();
-         #endregion
+        builder.RegisterType<ContractOfPersonCommandRepository>().As<IContractofPersonCommandRepository>()
+            .InstancePerDependency();
+        builder.RegisterType<ContractOfPersonQueryRepository>().As<IContractOfPersonQueryRepository>()
+            .InstancePerDependency();
+
+        #endregion
 
 
         #region Query Handler Di
 
         #region User
+
         builder.RegisterType<LoginQueryHandler>().As<IQueryHandler<LoginQuery, QueryResult<LoginQueryView>>>()
-    .InstancePerDependency();
+            .InstancePerDependency();
 
         #endregion
 
-        #region  ContractOfPersons
-   
-        builder.RegisterType<ContractOfPersonsQueryHandlers>()
-         .As<IQueryHandler<ContractPeopleQuery, QueryResult<List<ContractPeopleQueryView>>>>()
-         .InstancePerDependency();
+        #region ContractOfPersons
 
-        builder.RegisterType<ContractOfPersonsByNationalIdQueryHandlers>()
-      .As<IQueryHandler<ContractPeopleByNationalIdQuery, QueryResult<List<ContractPeopleByNationalIdQueryQueryViews>>>>()
-      .InstancePerDependency();
- 
+        builder.RegisterType<ContractOfPersonsQueryHandlers>()
+            .As<IQueryHandler<ContractPeopleQuery, QueryResult<List<ContractPeopleQueryView>>>>()
+            .InstancePerDependency();
+
+        builder.RegisterType<ContractPeopleByNationalIdQueryHandler>()
+            .As<IQueryHandler<ContractPeopleByNationalIdQuery,
+                QueryResult<List<ContractPeopleByNationalIdQueryView>>>>()
+            .InstancePerDependency();
+
         #endregion
 
         #endregion
