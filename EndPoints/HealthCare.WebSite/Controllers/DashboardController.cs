@@ -14,4 +14,11 @@ public class DashboardController : BaseController
         HttpContext.Session.Get("SelectedContractPersonId");
         return View();
     }
+
+    [Authorize]
+    [HttpPost]
+    public IActionResult ToDetaills()
+    {
+        return Redirect("Detaills");
+    }
 }
