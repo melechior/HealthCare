@@ -11,7 +11,16 @@
     {
         selectedObject = contractPeopleList!
             .FirstOrDefault(x => x.Id == Convert.ToInt64(selectedPersonId));
-        
+
+        selectedImage = selectedObject.IsMan!.Value
+            ? "../../assets/img/avatars/1.png"
+            : "../../assets/img/avatars/12.png";
+    }
+    else if (string.IsNullOrEmpty(selectedPersonId))
+    {
+        selectedObject = contractPeopleList!
+            .FirstOrDefault();
+        Context.Session.SetString("SelectedContractPersonId", selectedObject.Id.ToString());
         selectedImage = selectedObject.IsMan!.Value
             ? "../../assets/img/avatars/1.png"
             : "../../assets/img/avatars/12.png";
@@ -60,7 +69,7 @@
             <a class="nav-link dropdown-toggle hide-arrow" data-bs-toggle="dropdown"
                href="javascript:void(0);">
                 <div class="avatar avatar-online" style="display: flex;">
-                    <img alt class="h-auto rounded-circle" src="@selectedImage"/>
+                    <img alt="Avatar" class="h-auto rounded-circle" src="@selectedImage"/>
                     @if (selectedObject != null)
                     {
                         <span class="fw-semibold d-block h-auto avatar-title ">
