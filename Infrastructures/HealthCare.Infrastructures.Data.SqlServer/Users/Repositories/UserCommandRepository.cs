@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HealthCare.Infrastructures.Data.SqlServer.Users.Repositories;
 
-public class UserCommandRepository(DbContext context) : IUserCommandRepository
+public class UserCommandRepository(HealthCareDbContext context) : IUserCommandRepository
 {
     public void Create(User user)
     {

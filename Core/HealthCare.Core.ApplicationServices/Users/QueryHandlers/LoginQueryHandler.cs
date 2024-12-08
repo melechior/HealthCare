@@ -6,11 +6,6 @@ using HealthCare.Framework.Queries;
 using HealthCare.Framework.Resources;
 using HealthCare.Infrastructures.Shared.Helpers;
 using HealthCare.Infrastructures.Shared;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using HealthCare.Framework.Mapper;
 
 namespace HealthCare.Core.ApplicationServices.Users.QueryHandlers

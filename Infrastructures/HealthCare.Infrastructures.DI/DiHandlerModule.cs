@@ -8,11 +8,13 @@ using HealthCare.Core.ApplicationServices.Users.QueryHandlers;
 using HealthCare.Core.Domains.Users.Repositories;
 using HealthCare.Core.ApplicationServices.ContractOfPersons.QueryHandlers;
 using HealthCare.Core.ApplicationServices.DamagedFileDetails.QueryHandlers;
+using HealthCare.Core.ApplicationServices.Users.CommandHandlers;
 using HealthCare.Core.Domains.ContractOfPersons.Queries;
 using HealthCare.Core.Domains.ContractOfPersons.QueryViews;
 using HealthCare.Core.Domains.DamagedFileDetails.Queries;
 using HealthCare.Core.Domains.DamagedFileDetails.QueryViews;
 using HealthCare.Core.Domains.DamagedFileDetails.Repositories;
+using HealthCare.Core.Domains.Users.Commands;
 using HealthCare.Framework.Paging;
 using HealthCare.Infrastructures.Data.SqlServer;
 using HealthCare.Infrastructures.Data.SqlServer.ContractOfPersons.Repositories;
@@ -37,23 +39,26 @@ public class DiHandlerModule : Module
 
         builder.RegisterType<UserCommandRepository>().As<IUserCommandRepository>().InstancePerDependency();
         builder.RegisterType<UserQueryRepository>().As<IUserQueryRepository>().InstancePerDependency();
-        
+
         builder.RegisterType<ContractOfPersonCommandRepository>().As<IContractofPersonCommandRepository>()
             .InstancePerDependency();
-        
+
         builder.RegisterType<ContractOfPersonQueryRepository>().As<IContractOfPersonQueryRepository>()
             .InstancePerDependency();
-        
+
         builder.RegisterType<DamageFileDetailQueryRepository>().As<IDamagedFileDetailQueryRepository>()
             .InstancePerDependency();
 
         #endregion
-        
+
         #region Query Handler Di
 
         #region User
 
         builder.RegisterType<LoginQueryHandler>().As<IQueryHandler<LoginQuery, QueryResult<LoginQueryView>>>()
+            .InstancePerDependency();
+
+        builder.RegisterType<ChangePasswordCommandHandler>().As<CommandHandler<ChangePasswordCommand>>()
             .InstancePerDependency();
 
         #endregion
@@ -70,12 +75,14 @@ public class DiHandlerModule : Module
             .InstancePerDependency();
 
         #endregion
-        
+
         #region damageFileDetails
+
         builder.RegisterType<DamageFileDetailByStateQueryHandler>()
             .As<IQueryHandler<DamageFileDetailByStateQuery,
                 QueryResult<PagedQueryResult<DamageFileDetailByStateQueryView>>>>()
             .InstancePerDependency();
+
         #endregion
 
         #endregion

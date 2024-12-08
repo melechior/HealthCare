@@ -70,17 +70,17 @@ $('#damage_file_id').DataTable({
             orderable: false,
             searchable: false,
             render: function (data, type, full, meta) {
-                debugger
-                let buttons =
-                    '<a href="javascript:ViewDamageFileDetailFiles(' + full["id"] + ');" class="btn btn-sm btn-icon item-edit" data-bs-toggle="tooltip" title="مشاهده اسناد"><i class="text-primary ti ti-eye"></i></a>' +
-                    '<a href="javascript:ViewCommentDamageFileDetailFiles(' + full["id"] + ')" class="btn btn-sm btn-icon item-edit" data-bs-toggle="tooltip" title="مشاهده گردش"><i class="text-primary ti ti-timeline"></i></a>' +
-                    '<a href="javascript:NotificationDamageFileDetail(' + full["id"] + ')" class="btn btn-sm btn-icon item-edit" data-bs-toggle="tooltip" title="ثبت توضیحات"><i class="text-primary ti ti-notification"></i></a>';
+                let buttons = "";
+                // '<a href="javascript:ViewDamageFileDetailFiles(' + full["id"] + ');" class="btn btn-sm btn-icon item-edit" data-bs-toggle="tooltip" title="مشاهده اسناد"><i class="text-primary ti ti-eye"></i></a>' +
+                // '<a href="javascript:ViewCommentDamageFileDetailFiles(' + full["id"] + ')" class="btn btn-sm btn-icon item-edit" data-bs-toggle="tooltip" title="مشاهده گردش"><i class="text-primary ti ti-timeline"></i></a>' +
+                // '<a href="javascript:NotificationDamageFileDetail(' + full["id"] + ')" class="btn btn-sm btn-icon item-edit" data-bs-toggle="tooltip" title="ثبت توضیحات"><i class="text-primary ti ti-notification"></i></a>';
                 if (full['damageFileState'] === 10) {
                     buttons += '<a href="javascript:show_payment(' + full["id"] + ')" class="btn btn-sm btn-icon item-edit" data-bs-toggle="tooltip" title="مشاهده پرداخت"><i class="text-primary ti ti-report-money"></i></a>';
-                } else {
-                    buttons += '<a href="javascript:goToDefect(' + full["id"] + ')" class="btn btn-sm btn-icon item-edit" data-bs-toggle="tooltip" title="ثبت نقص پرونده"><i class="text-primary ti ti-certificate-2-off"></i></a>' +
-                        '<a href="javascript:goToReject(' + full["id"] + ')" class="btn btn-sm btn-icon item-edit" data-bs-toggle="tooltip" title="ثبت مردودی پرونده"><i class="text-primary ti ti-ban"></i></a>';
                 }
+                // else {
+                //     buttons += '<a href="javascript:goToDefect(' + full["id"] + ')" class="btn btn-sm btn-icon item-edit" data-bs-toggle="tooltip" title="ثبت نقص پرونده"><i class="text-primary ti ti-certificate-2-off"></i></a>' +
+                //         '<a href="javascript:goToReject(' + full["id"] + ')" class="btn btn-sm btn-icon item-edit" data-bs-toggle="tooltip" title="ثبت مردودی پرونده"><i class="text-primary ti ti-ban"></i></a>';
+                // }
                 return buttons;
             }
         }

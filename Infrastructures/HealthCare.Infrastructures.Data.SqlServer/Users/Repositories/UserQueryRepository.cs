@@ -2,7 +2,6 @@ using HealthCare.Core.Domains.Users.Dtos;
 using HealthCare.Core.Domains.Users.Entities;
 using HealthCare.Core.Domains.Users.Repositories;
 using HealthCare.Framework.Paging;
-using Microsoft.EntityFrameworkCore;
 
 namespace HealthCare.Infrastructures.Data.SqlServer.Users.Repositories;
 
@@ -22,7 +21,7 @@ public class UserQueryRepository(HealthCareDbContext context) : IUserQueryReposi
 
     public User? GetById(long id)
     {
-        throw new NotImplementedException();
+        return context.Users.FirstOrDefault(x => x.Id == id);
     }
 
     public User? GetUserByUsername(string username)

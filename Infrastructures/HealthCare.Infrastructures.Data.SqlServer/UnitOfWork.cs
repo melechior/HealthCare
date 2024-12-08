@@ -8,11 +8,13 @@ namespace HealthCare.Infrastructures.Data.SqlServer;
 public class UnitOfWork(
     HealthCareDbContext context,
     IUserQueryRepository userQueryRepository,
+    IUserCommandRepository userCommandRepository,
     IContractOfPersonQueryRepository contractOfPersonQueryRepository,
     IDamagedFileDetailQueryRepository damagedFileDetailQueryRepository) : IUnitOfWork
 {
-    public IUserCommandRepository UserCommandRepository { get; }
+    public IUserCommandRepository UserCommandRepository { get; } = userCommandRepository;
     public IUserQueryRepository UserQueryRepository { get; } = userQueryRepository;
+    
     public IContractCommandRepository ContractCommandRepository { get; }
     public IContractofPersonCommandRepository ContractOfPersonCommandRepository { get; }
     public IContractOfPersonQueryRepository ContractOfPersonQueryRepository { get; } = contractOfPersonQueryRepository;
