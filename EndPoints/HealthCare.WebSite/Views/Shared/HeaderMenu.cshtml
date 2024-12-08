@@ -7,6 +7,7 @@
     var selectedPersonId = Context.Session.GetString("SelectedContractPersonId");
     ContractPeopleByNationalIdQueryView? selectedObject = null;
     var selectedImage = "";
+
     if (!string.IsNullOrEmpty(selectedPersonId))
     {
         selectedObject = contractPeopleList!
@@ -18,12 +19,18 @@
     }
     else if (string.IsNullOrEmpty(selectedPersonId))
     {
-        selectedObject = contractPeopleList!
-            .FirstOrDefault();
-        Context.Session.SetString("SelectedContractPersonId", selectedObject.Id.ToString());
-        selectedImage = selectedObject.IsMan!.Value
-            ? "../../assets/img/avatars/1.png"
-            : "../../assets/img/avatars/12.png";
+        try{
+            selectedObject = contractPeopleList!
+                .FirstOrDefault();
+            Context.Session.SetString("SelectedContractPersonId", selectedObject.Id.ToString());
+            selectedImage = selectedObject.IsMan!.Value
+                ? "../../assets/img/avatars/1.png"
+                : "../../assets/img/avatars/12.png";
+        }
+        catch{
+            selectedImage = "../../assets/img/avatars/1.png";
+
+        }
     }
 }
 <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
@@ -69,9 +76,12 @@
             <a class="nav-link dropdown-toggle hide-arrow" data-bs-toggle="dropdown"
                href="javascript:void(0);">
                 <div class="avatar avatar-online" style="display: flex;">
-                    <img alt="Avatar" class="h-auto rounded-circle" src="@selectedImage"/>
+                   
+                     <img alt="Avatar" class="h-auto rounded-circle" src="@selectedImage"/>
                     @if (selectedObject != null)
                     {
+                        <img alt="Avatar" class="h-auto rounded-circle" src="../../assets/img/avatars/1.png" />
+
                         <span class="fw-semibold d-block h-auto avatar-title ">
                             @($"{selectedObject.Firstname} {selectedObject.LastName} ({selectedObject.ContractName})")
                         </span>
