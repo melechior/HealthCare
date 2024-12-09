@@ -22,13 +22,18 @@ public class DetailsController : BaseController
 
     [Authorize]
     [HttpPost]
-    [HttpPost]
     public IActionResult PersonageList(DataTableAjaxPostModel model)
     {
         var personId = HttpContext.Session.GetString("SelectedContractPersonId");
         if (string.IsNullOrWhiteSpace(personId))
         {
-            return BadRequest();
+            return Json(new
+            {
+                draw = model.draw,
+                recordsTotal = 0,
+                recordsFiltered = 0,
+                data = new PagedQueryResult<DamageFileDetailByStateQueryView>(),
+            });
         }
 
         var page = (model.start / model.length) + 1;

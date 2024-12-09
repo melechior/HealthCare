@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HealthCare.WebSite.Controllers;
 
+[Authorize]
 public class ChangePassController : BaseController
 {
     // GET
@@ -14,6 +15,8 @@ public class ChangePassController : BaseController
         return View();
     }
     
+    [Authorize]
+    [HttpPost]
     public IActionResult Change(ChangePasswordCommand command)
     {
         command.UserId = UserId;
