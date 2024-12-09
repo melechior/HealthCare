@@ -2,10 +2,10 @@
     Layout = "_Layout";
     ViewData["Title"] = "اطلاعات تکمیلی";
 }
-<div class="container-xxl flex-grow-1 container-p-y">
+@* <div class="container-xxl flex-grow-1 container-p-y"> *@
     <div class="card">
-        <div class="card-datatable table-responsive pt-0">
-            <table class="dt-responsive table">
+        <div class="card-datatable table-responsive">
+            <table class="dt-responsive table" id="damage_file_id">
                 @* <table class="  table  dt-responsive" id="damage_file_id"> *@
                 <thead>
                 <tr>
@@ -23,7 +23,7 @@
             </table>
         </div>
     </div>
-</div>
+@* </div> *@
 @section js{
     <script type="text/javascript" src = "../../assets/js/pages-js/details/app-details-list.js"></script>
 }

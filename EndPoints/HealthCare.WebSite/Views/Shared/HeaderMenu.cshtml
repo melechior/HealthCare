@@ -6,31 +6,29 @@
     var contractPeopleList = JsonConvert.DeserializeObject<List<ContractPeopleByNationalIdQueryView>>(Context.Session.GetString("ContractOfPeople"));
     var selectedPersonId = Context.Session.GetString("SelectedContractPersonId");
     ContractPeopleByNationalIdQueryView? selectedObject = null;
-    var selectedImage = "";
+    var selectedImage = "../../assets/img/avatars/1.png";
 
     if (!string.IsNullOrEmpty(selectedPersonId))
     {
         selectedObject = contractPeopleList!
             .FirstOrDefault(x => x.Id == Convert.ToInt64(selectedPersonId));
-
-        selectedImage = selectedObject.IsMan!.Value
-            ? "../../assets/img/avatars/1.png"
-            : "../../assets/img/avatars/12.png";
-    }
-    else if (string.IsNullOrEmpty(selectedPersonId))
-    {
-        try{
-            selectedObject = contractPeopleList!
-                .FirstOrDefault();
-            Context.Session.SetString("SelectedContractPersonId", selectedObject.Id.ToString());
+        if (selectedObject != null)
+        {
             selectedImage = selectedObject.IsMan!.Value
                 ? "../../assets/img/avatars/1.png"
                 : "../../assets/img/avatars/12.png";
         }
-        catch{
-            selectedImage = "../../assets/img/avatars/1.png";
-
-
+    }
+    else if (string.IsNullOrEmpty(selectedPersonId))
+    {
+        selectedObject = contractPeopleList!
+            .FirstOrDefault();
+        if (selectedObject != null)
+        {
+            Context.Session.SetString("SelectedContractPersonId", selectedObject.Id.ToString());
+            selectedImage = selectedObject.IsMan!.Value
+                ? "../../assets/img/avatars/1.png"
+                : "../../assets/img/avatars/12.png";
         }
     }
 }
@@ -77,12 +75,13 @@
             <a class="nav-link dropdown-toggle hide-arrow" data-bs-toggle="dropdown"
                href="javascript:void(0);">
                 <div class="avatar avatar-online" style="display: flex;">
-                   
-                     <img alt="Avatar" class="h-auto rounded-circle" src="@selectedImage"/>
-                    @if (selectedObject != null)
+                    @if (selectedObject == null)
                     {
-                        <img alt="Avatar" class="h-auto rounded-circle" src="../../assets/img/avatars/1.png" />
-
+                        <img alt="Avatar" class="h-auto rounded-circle" src="@selectedImage"/>
+                    }
+                    else
+                    {
+                        <img alt="Avatar" class="h-auto rounded-circle" src="@selectedImage"/>
                         <span class="fw-semibold d-block h-auto avatar-title ">
                             @($"{selectedObject.Firstname} {selectedObject.LastName} ({selectedObject.ContractName})")
                         </span>

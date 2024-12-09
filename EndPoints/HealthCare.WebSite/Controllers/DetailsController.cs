@@ -32,7 +32,7 @@ public class DetailsController : BaseController
                 draw = model.draw,
                 recordsTotal = 0,
                 recordsFiltered = 0,
-                data = new PagedQueryResult<DamageFileDetailByStateQueryView>(),
+                data = new List<DamageFileDetailByStateQueryView>(),
             });
         }
 
