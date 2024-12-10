@@ -46,8 +46,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
                                 message: 'رمز ورود را وارد کنید'
                             },
                             stringLength: {
-                                min: 6,
-                                message: 'رمز ورود باید بیشتر از 6 کارکتر باشد'
+                                min: 4,
+                                message: 'رمز ورود باید بیشتر از 4 کارکتر باشد'
                             }
                         }
                     },
