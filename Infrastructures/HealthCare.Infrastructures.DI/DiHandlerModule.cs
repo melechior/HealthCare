@@ -60,6 +60,10 @@ public class DiHandlerModule : Module
 
         builder.RegisterType<ChangePasswordCommandHandler>().As<CommandHandler<ChangePasswordCommand>>()
             .InstancePerDependency();
+        
+        builder.RegisterType<GetUserByFilterQueryHandler>()
+            .As<IQueryHandler<UserByFilterQuery, QueryResult<PagedQueryResult<UserByFilterQueryView>>>>()
+            .InstancePerDependency();
 
         #endregion
 

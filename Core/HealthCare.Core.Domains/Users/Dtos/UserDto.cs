@@ -1,6 +1,8 @@
+using HealthCare.Framework.Dto;
+
 namespace HealthCare.Core.Domains.Users.Dtos;
 
-public class UserDto
+public class UserDto : Dto
 {
     public string Username { get; set; }
     public string FirstName { get; set; }

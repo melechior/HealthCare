@@ -9,7 +9,14 @@
     <ItemGroup>
         <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0" />
         <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+        <PackageReference Include="Autofac" Version="8.1.1" />
+        <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Core\HealthCare.Core.Domains\HealthCare.Core.Domains.csproj" />
+      <ProjectReference Include="..\Infrastructures\HealthCare.Infrastructures.DI\HealthCare.Infrastructures.DI.csproj" />
     </ItemGroup>
 
 </Project>
