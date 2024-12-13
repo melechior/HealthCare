@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCare.Infrastructures.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCare.Infrastructures.Shared", "Infrastructures\HealthCare.Infrastructures.Shared\HealthCare.Infrastructures.Shared.csproj", "{029C308B-CBEE-4E8E-839A-7388412B618F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCare.WebApi", "HealthCare.WebApi\HealthCare.WebApi.csproj", "{20D76283-9DA3-43A9-A73F-B5C7CFAAFEFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,7 @@ Global
 		{4B3249BF-3184-4319-8029-66D433675A3E} = {029D9244-0976-4723-8785-993FCFCD2701}
 		{81C224C9-7919-4CF4-8EF0-29D901717EEF} = {029D9244-0976-4723-8785-993FCFCD2701}
 		{029C308B-CBEE-4E8E-839A-7388412B618F} = {029D9244-0976-4723-8785-993FCFCD2701}
+		{20D76283-9DA3-43A9-A73F-B5C7CFAAFEFB} = {C431AC25-0F5C-468D-8414-E09693F4D90D}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{9A475DC8-4C58-4F97-A23E-8A2E69D3DDDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -72,5 +75,9 @@ Global
 		{029C308B-CBEE-4E8E-839A-7388412B618F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{029C308B-CBEE-4E8E-839A-7388412B618F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{029C308B-CBEE-4E8E-839A-7388412B618F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20D76283-9DA3-43A9-A73F-B5C7CFAAFEFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20D76283-9DA3-43A9-A73F-B5C7CFAAFEFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20D76283-9DA3-43A9-A73F-B5C7CFAAFEFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20D76283-9DA3-43A9-A73F-B5C7CFAAFEFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
