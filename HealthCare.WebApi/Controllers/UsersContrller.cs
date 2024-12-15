@@ -15,10 +15,8 @@ namespace HealthCare.WebApi.Controllers;
 public class UsersController : BaseController
 {
     [HttpGet("GetUserInfo")]
-    public IActionResult GetV1()
+    public IActionResult GetV1([FromQuery] UserByFilterQuery query)
     {
-        var query = new UserByFilterQuery();
-
         var users = QueryDispatcher.Dispatch<QueryResult<PagedQueryResult<UserByFilterQueryView>>>(query);
 
         return Ok(users);
