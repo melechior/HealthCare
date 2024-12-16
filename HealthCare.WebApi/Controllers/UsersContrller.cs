@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HealthCare.WebApi.Controllers;
 
-[Route("api/v1/[controller]/[action]")]
+[Route("api/v1/[controller]")]
 [ApiController]
 public class UsersController : BaseController
 {
