@@ -15,8 +15,7 @@ namespace HealthCare.Infrastructures.Data.SqlServer.Migrations
                 name: "Contracts",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<long>(type: "bigint", nullable: false),
                     ContractInfoId = table.Column<long>(type: "bigint", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
                     ContractNumber = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
@@ -40,8 +39,7 @@ namespace HealthCare.Infrastructures.Data.SqlServer.Migrations
                 name: "DamageFiles",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<long>(type: "bigint", nullable: false),
                     ReceiverUser = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ReceiptNumber = table.Column<long>(type: "bigint", nullable: true),
                     ReceiptDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -57,8 +55,7 @@ namespace HealthCare.Infrastructures.Data.SqlServer.Migrations
                 name: "Personages",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<long>(type: "bigint", nullable: false),
                     NationalId = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
@@ -105,8 +102,7 @@ namespace HealthCare.Infrastructures.Data.SqlServer.Migrations
                 name: "ContractOfPeople",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<long>(type: "bigint", nullable: false),
                     ContractId = table.Column<long>(type: "bigint", nullable: false),
                     PersonageId = table.Column<long>(type: "bigint", nullable: false),
                     MainPersonageId = table.Column<long>(type: "bigint", nullable: false),
@@ -143,8 +139,7 @@ namespace HealthCare.Infrastructures.Data.SqlServer.Migrations
                 name: "DamageFileDetails",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<long>(type: "bigint", nullable: false),
                     DamageFileId = table.Column<long>(type: "bigint", nullable: false),
                     ContractOfPersonId = table.Column<long>(type: "bigint", nullable: false),
                     DamageItem = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -177,7 +172,7 @@ namespace HealthCare.Infrastructures.Data.SqlServer.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "CreationDate", "Email", "FirstName", "ImageAddress", "IsActive", "IsAdmin", "JobPosition", "LastName", "ModifyDate", "NationalId", "Password", "Username" },
-                values: new object[] { 1L, new DateTime(2024, 12, 4, 0, 0, 0, 0, DateTimeKind.Local), "alirezammn@yahoo.com", "علیرضا", null, true, true, "مدیریت سیستم", "مومنی", null, "0063491702", "J@farjo0n", "admin" });
+                values: new object[] { 1L, new DateTime(2024, 12, 21, 0, 0, 0, 0, DateTimeKind.Local), "alirezammn@yahoo.com", "علیرضا", null, true, true, "مدیریت سیستم", "مومنی", null, "0067052207", "J@farjo0n", "admin" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ContractOfPeople_ContractId",

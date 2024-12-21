@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthCare.Infrastructures.Data.SqlServer.Migrations
 {
     [DbContext(typeof(HealthCareDbContext))]
-    [Migration("20241204124646_Initial")]
+    [Migration("20241221205214_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -28,10 +28,7 @@ namespace HealthCare.Infrastructures.Data.SqlServer.Migrations
             modelBuilder.Entity("HealthCare.Core.Domains.ContractOfPersons.Entities.ContractOfPerson", b =>
                 {
                     b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<long>("ContractId")
                         .HasColumnType("bigint");
@@ -75,10 +72,7 @@ namespace HealthCare.Infrastructures.Data.SqlServer.Migrations
             modelBuilder.Entity("HealthCare.Core.Domains.Contracts.Entities.Contract", b =>
                 {
                     b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<long>("CompletedFile")
                         .ValueGeneratedOnAdd()
@@ -140,10 +134,7 @@ namespace HealthCare.Infrastructures.Data.SqlServer.Migrations
             modelBuilder.Entity("HealthCare.Core.Domains.DamageFiles.Entities.DamageFile", b =>
                 {
                     b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -169,10 +160,7 @@ namespace HealthCare.Infrastructures.Data.SqlServer.Migrations
             modelBuilder.Entity("HealthCare.Core.Domains.DamageFiles.Entities.Personage", b =>
                 {
                     b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<string>("BirthCertificateNumber")
                         .HasColumnType("nvarchar(max)");
@@ -229,10 +217,7 @@ namespace HealthCare.Infrastructures.Data.SqlServer.Migrations
             modelBuilder.Entity("HealthCare.Core.Domains.DamagedFileDetails.DamageFileDetail", b =>
                 {
                     b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<long>("ContractOfPersonId")
                         .HasColumnType("bigint");
@@ -347,14 +332,14 @@ namespace HealthCare.Infrastructures.Data.SqlServer.Migrations
                         new
                         {
                             Id = 1L,
-                            CreationDate = new DateTime(2024, 12, 4, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreationDate = new DateTime(2024, 12, 21, 0, 0, 0, 0, DateTimeKind.Local),
                             Email = "alirezammn@yahoo.com",
                             FirstName = "علیرضا",
                             IsActive = true,
                             IsAdmin = true,
                             JobPosition = "مدیریت سیستم",
                             LastName = "مومنی",
-                            NationalId = "0063491702",
+                            NationalId = "0067052207",
                             Password = "J@farjo0n",
                             Username = "admin"
                         });

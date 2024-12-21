@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using HealthCare.Framework.Resources;
 
 namespace HealthCare.Framework.Domain
@@ -8,6 +10,7 @@ namespace HealthCare.Framework.Domain
     {
         private readonly List<ResultMessage> _brokenRules = new List<ResultMessage>();
 
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long Id { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime? ModifyDate { get; set; }
@@ -26,5 +29,4 @@ namespace HealthCare.Framework.Domain
             _brokenRules.Add(businessRule);
         }
     }
-
 }

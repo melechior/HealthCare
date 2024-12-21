@@ -21,7 +21,5 @@ public class ContractConfig : IEntityTypeConfiguration<Contract>
         builder.Property(p => p.TotalPersonage).IsRequired().HasDefaultValue(0);
         builder.Property(p => p.FileNotSend).IsRequired().HasDefaultValue(0);
         builder.Property(p => p.FileSent).IsRequired().HasDefaultValue(0);
-
-  
     }
 }

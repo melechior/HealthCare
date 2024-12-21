@@ -9,6 +9,7 @@ public class UserConfig : IEntityTypeConfiguration<User>
     public void Configure(EntityTypeBuilder<User> builder)
     {
         builder.HasKey(k => k.Id);
+        builder.Property(k => k.Id).ValueGeneratedOnAdd();
         builder.Property(p => p.CreationDate).IsRequired();
         builder.Property(p => p.ModifyDate).IsRequired(false);
         builder.Property(p=> p.NationalId).IsRequired().HasMaxLength(10);
