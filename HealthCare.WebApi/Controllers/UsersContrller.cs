@@ -8,6 +8,7 @@ using HealthCare.Framework.Paging;
 using HealthCare.Framework.Queries;
 using HealthCare.Infrastructures.Shared.Enums;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace HealthCare.WebApi.Controllers;
 
@@ -22,10 +23,10 @@ public class UsersController : BaseController
 
         return Ok(users);
     }
-    [HttpGet("ResetUsermPass")]
-    public IActionResult ResetUsersPass([FromQuery] ResetPassWorldCommand query)
+    [HttpPost("ResetUsermPass")]
+    public IActionResult ResetUsersPass([FromQuery] ResetPassworldCommand command)
     {
-        var users = QueryDispatcher.Dispatch<QueryResult<PagedQueryResult<ResetPassWorldCommand>>>(query);
+        var users = CommandDispatcher.Dispatch(command);
 
         return Ok(users);
     }

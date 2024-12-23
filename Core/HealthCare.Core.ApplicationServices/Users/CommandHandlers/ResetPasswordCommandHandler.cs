@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace HealthCare.Core.ApplicationServices.Users.CommandHandlers
 {
-    internal class ResetPasswordCommandHandler(IUnitOfWork unitOfWork) : CommandHandler<ResetPassWorldCommand>
+    public class ResetPasswordCommandHandler(IUnitOfWork unitOfWork) : CommandHandler<ResetPassworldCommand>
     {
-        public override CommandResult Execute(ResetPassWorldCommand command)
+        public override CommandResult Execute(ResetPassworldCommand command)
         {
             var commandResult = new CommandResult();
 
