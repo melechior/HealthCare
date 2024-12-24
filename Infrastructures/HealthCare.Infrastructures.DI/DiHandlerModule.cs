@@ -61,7 +61,7 @@ public class DiHandlerModule : Module
         builder.RegisterType<ChangePasswordCommandHandler>().As<CommandHandler<ChangePasswordCommand>>()
             .InstancePerDependency();
 
-        builder.RegisterType<ResetPasswordCommandHandler>().As<CommandHandler<ResetPassworldCommand>>()
+        builder.RegisterType<ResetPasswordCommandHandler>().As<CommandHandler<ResetPasswordCommand>>()
     .InstancePerDependency();
 
         builder.RegisterType<GetUserByFilterQueryHandler>()
