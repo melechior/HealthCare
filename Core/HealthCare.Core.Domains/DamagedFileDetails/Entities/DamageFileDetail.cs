@@ -13,17 +13,18 @@ public class DamageFileDetail : BaseEntity
 
     public long ContractOfPersonId { get; set; }
     public ContractOfPerson ContractOfPerson { get; set; }
-    public string  DamageItem { get; set; }
+    public string DamageItem { get; set; }
     public DateTime? SendToInsuranceDate { get; set; }
     public string InsuranceReceiptNumber { get; set; }
     public DamageFileState DamageFileState { get; set; }
     public decimal RequestedAmount { get; set; }
-     public DateTime DamageDate { get; set; }
-       public string? Description { get; set; }
- 
-     protected override void Validate()
+    public DateTime DamageDate { get; set; }
+    public string? Description { get; set; }
+    
+    public ICollection<PaymentDamageFile> PaymentDamageFiles { get; set; }
+
+    protected override void Validate()
     {
         throw new NotImplementedException();
     }
 }
- 

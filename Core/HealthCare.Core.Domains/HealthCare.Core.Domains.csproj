@@ -10,4 +10,15 @@
       <ProjectReference Include="..\..\Frameworks\HealthCare.Framework\HealthCare.Framework.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="PaymentDamageFiles\Dtos\" />
+      <Folder Include="PaymentDamageFiles\QueryViews\" />
+      <Folder Include="PaymentDamageFiles\Query\" />
+      <Folder Include="PaymentDamageFiles\Repositories\" />
+      <Folder Include="Payments\Dtos\" />
+      <Folder Include="Payments\QueryViews\" />
+      <Folder Include="Payments\Query\" />
+      <Folder Include="Payments\Repositories\" />
+    </ItemGroup>
+
 </Project>
