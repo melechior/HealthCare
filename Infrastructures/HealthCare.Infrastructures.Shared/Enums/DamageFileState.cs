@@ -7,37 +7,42 @@ public enum DamageFileState
     /// <summary>
     /// ثبت اولیه
     /// </summary>
-    [Display(Name = "ثبت اولیه")] InitialRegistration = 1,
+    [Display(Name = "در حال بررسی")] InitialRegistration = 1,
 
     /// <summary>
     /// ثبت اسناد
     /// </summary>
-    [Display(Name = "ثبت اسناد")] RegistrationDocuments = 2,
+    [Display(Name = "در حال بررسی")] RegistrationDocuments = 2,
 
     /// <summary>
     /// آماده به ارسال
     /// </summary>
-    [Display(Name = "آماده به ارسال")] ReadyToPost = 9,
+    [Display(Name = "در حال بررسی")] ReadyToPost = 9,
 
     /// <summary>
     /// ارسال شده
     /// </summary>
-    [Display(Name = "ارسال شده")] Posted = 4,
+    [Display(Name = "در حال بررسی")] Posted = 4,
 
     /// <summary>
     /// دارای نقص
     /// </summary>
-    [Display(Name = "دارای نقص")] Defective = 5,
+    [Display(Name = "دارای نقص")] Defective01 = 5,
+    /// <summary>
+    /// دارای نقص
+    /// </summary>
+    [Display(Name = "دارای نقص")] Defective02 = 50,
 
     /// <summary>
     /// تکمیل شده
     /// </summary>
-    [Display(Name = "تکمیل شده")] Completed = 6,
-    [Display(Name = "تکمیل ظرفیت شده")] CompletedCapacity = 7,
-    [Display(Name = "تذکر")] Notification = 8,
-    [Display(Name = "تایید نهایی")] AcceptToSend = 3,
-    [Display(Name = "آماده به پرداخت")] ReadyToPay = 12,
+    [Display(Name = "در حال بررسی")] Completed = 6,
+    [Display(Name = "در حال بررسی")] CompletedCapacity = 7,
+    [Display(Name = "در حال بررسی")] Notification = 8,
+    [Display(Name = "در حال بررسی")] Contact = 80,
+    [Display(Name = "در حال بررسی")] AcceptToSend = 3,
+    [Display(Name = "در حال بررسی")] ReadyToPay = 12,
     [Display(Name = "پرداخت شده")] Paid = 10,
-    [Display(Name = "دارای مغایرت پرداختی")] Conflict = 11,
+    [Display(Name = "مردود شده")] Conflict = 11,
     [Display(Name = "مردود شده")] Rejected = 13
 }

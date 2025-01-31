@@ -38,10 +38,14 @@ public class ContractCommandRepository(HealthCareDbContext context) : IContractC
 
         //TODO
         contractInfo.FileDefect = context.DamageFileDetails
-            .Count(x => x.DamageFileState == DamageFileState.Defective && x.ContractOfPerson.ContractId == contractId);
+             .Count(x => (x.DamageFileState == DamageFileState.Defective02 ||
+                          x.DamageFileState == DamageFileState.Defective01) &&
+                         x.ContractOfPerson.ContractId == contractId);
 
         contractInfo.CompletedFile = context.DamageFileDetails
-            .Count(x => x.DamageFileState == DamageFileState.Completed && x.ContractOfPerson.ContractId == contractId);
+            .Count(x => (x.DamageFileState == DamageFileState.Completed ||
+                         x.DamageFileState == DamageFileState.Rejected || x.DamageFileState == DamageFileState.Paid) &&
+                        x.ContractOfPerson.ContractId == contractId);
 
         contractInfo.FileSent = context.DamageFileDetails
             .Count(x => x.DamageFileState == DamageFileState.Posted && x.ContractOfPerson.ContractId == contractId);

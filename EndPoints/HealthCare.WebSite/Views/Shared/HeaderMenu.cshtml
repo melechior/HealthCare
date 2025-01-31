@@ -6,7 +6,7 @@
     var contractPeopleList = JsonConvert.DeserializeObject<List<ContractPeopleByNationalIdQueryView>>(Context.Session.GetString("ContractOfPeople"));
     var selectedPersonId = Context.Session.GetString("SelectedContractPersonId");
     ContractPeopleByNationalIdQueryView? selectedObject = null;
-    var selectedImage = "../../assets/img/avatars/A2-M.png";
+    var selectedImage = "../../assets/img/avatars/profilePicD.png";
 
     if (!string.IsNullOrEmpty(selectedPersonId))
     {
@@ -15,8 +15,8 @@
         if (selectedObject != null)
         {
             selectedImage = selectedObject.IsMan!.Value
-                  ? "../../assets/img/avatars/A2-M.png"
-                : "../../assets/img/avatars/A1-F.png"; 
+                  ? "../../assets/img/avatars/profilePicD.png"
+                : "../../assets/img/avatars/profilePicD.png";
         }
     }
     else if (string.IsNullOrEmpty(selectedPersonId))
@@ -27,8 +27,8 @@
         {
             Context.Session.SetString("SelectedContractPersonId", selectedObject.Id.ToString());
             selectedImage = selectedObject.IsMan!.Value
-                ? "../../assets/img/avatars/A2-M.png"
-                : "../../assets/img/avatars/A1-F.png";
+                ? "../../assets/img/avatars/profilePicD.png"
+                : "../../assets/img/avatars/profilePicD.png";
         }
     }
 }
@@ -92,8 +92,8 @@
                 @foreach (var contractPeople in contractPeopleList!)
                 {
                     var image = contractPeople.IsMan!.Value
-                    ? "../../assets/img/avatars/A2-M.png"
-                    : "../../assets/img/avatars/A1-F.png";
+                    ? "../../assets/img/avatars/profilePicD.png"
+                    : "../../assets/img/avatars/profilePicD.png";
                     <li>
                         <a class="dropdown-item customerItem" personalId="@contractPeople.Id">
                             <div class="d-flex">

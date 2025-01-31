@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/26/2025 19:26:56" ReportInfo.Modified="01/31/2025 12:33:28" ReportInfo.CreatorVersion="2025.1.0.0">
+  <Dictionary>
+    <BusinessObjectDataSource Name="DamageFileDetail" ReferenceName="DamageFileDetailRef" DataType="System.Int32" Enabled="true">
+      <Column Name="Id" DataType="System.Int64"/>
+      <Column Name="ReceiptNumber" DataType="System.String"/>
+      <Column Name="PersianDocumentSaved" DataType="System.String"/>
+      <Column Name="PersianDamageDate" DataType="System.String"/>
+      <Column Name="DamageItemName" DataType="System.String"/>
+      <Column Name="RequestedAmount" DataType="System.Decimal"/>
+      <Column Name="DamageFileStateName" DataType="System.String"/>
+      <Column Name="Description" DataType="System.String"/>
+      <Column Name="PaymentId" DataType="System.Int64"/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="PaymentDamageFileDetail" ReferenceName="PaymentDamageFileDetailRef" DataType="System.Int32" Enabled="true">
+      <Column Name="Id" DataType="System.Int64"/>
+      <Column Name="ReceiptNumber" DataType="System.String"/>
+      <Column Name="PersianDocumentSaved" DataType="System.String"/>
+      <Column Name="PersianDamageDate" DataType="System.String"/>
+      <Column Name="DamageItemName" DataType="System.String"/>
+      <Column Name="RequestedAmount" DataType="System.Decimal"/>
+      <Column Name="DamageFileStateName" DataType="System.String"/>
+      <Column Name="Description" DataType="System.String"/>
+      <Column Name="PaymentId" DataType="System.Int64"/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="Payment" ReferenceName="PaymentRef" DataType="System.Int32" Enabled="true">
+      <Column Name="Id" DataType="System.Int64"/>
+      <Column Name="ReceiptNumber" DataType="System.String"/>
+      <Column Name="PersianPaymentDate" DataType="System.String"/>
+      <Column Name="Amount" DataType="System.Decimal"/>
+    </BusinessObjectDataSource>
+    <Relation Name="Payment_PaymentDamageFileDetail" ParentDataSource="Payment" ChildDataSource="PaymentDamageFileDetail" ParentColumns="Id" ChildColumns="PaymentId" Enabled="true"/>
+    <Parameter Name="NationalId" DataType="System.String" AsString=""/>
+    <Parameter Name="PersonName" DataType="System.String" AsString=""/>
+    <Parameter Name="ContractName" DataType="System.String" AsString=""/>
+    <Parameter Name="PersianReportDate" DataType="System.String" AsString=""/>
+    <Total Name="Total" Expression="[PaymentDamageFileDetail.RequestedAmount]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" Watermark.Font="Arial, 60pt">
+    <PageHeaderBand Name="PageHeader1" Width="718.2" Height="113.4">
+      <TextObject Name="Text18" Left="-9450" Top="-9450" Width="94.5" Height="18.9" Text="PersonName" Font="Arial, 10pt"/>
+      <TextObject Name="Text23" Left="198.45" Top="47.25" Width="510.3" Height="18.9" Text="مشخصات خسارت گیرنده : [PersonName]([NationalId])" RightToLeft="true" Font="Arial, 10pt"/>
+      <TextObject Name="Text24" Left="387.45" Top="66.15" Width="321.3" Height="18.9" Text="[ContractName]" RightToLeft="true" Font="Arial, 10pt"/>
+      <TextObject Name="Text26" Left="18.9" Top="9.45" Width="680.4" Height="28.35" Text="صورت وضعیت پرونده های خسارتی" HorzAlign="Center" RightToLeft="true" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text27" Left="9.45" Top="47.25" Width="189" Height="18.9" Text="تاریخ گزارش : [PersianReportDate]" RightToLeft="true" Font="Arial, 10pt"/>
+      <TextObject Name="Text52" Left="37.8" Top="75.6" Width="94.5" Height="18.9" Text="صفحه [Page#] از [TotalPages#]" Font="Arial, 10pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="117.4" Width="718.2" Height="66.15" DataSource="Payment">
+      <TextObject Name="Text19" Left="179.55" Top="9.45" Width="529.2" Height="28.35" Border.Lines="All" Text="مبلغ پرداختی :[FormatNumber([PaymentDamageFileDetail.Payment.Amount],0)] " Format="Currency" Format.UseLocale="true" Format.DecimalDigits="0" VertAlign="Center" RightToLeft="true" WordWrap="false" Font="Arial, 10pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text28" Left="9.45" Top="9.45" Width="170.1" Height="28.35" Border.Lines="All" Text="تاریخ واریز : [PaymentDamageFileDetail.Payment.PersianPaymentDate]" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+      <TextObject Name="Text29" Left="567" Top="37.8" Width="94.5" Height="28.35" Border.Lines="All" Text="شماره رسید" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+      <TextObject Name="Text30" Left="226.8" Top="37.8" Width="340.2" Height="28.35" Border.Lines="All" Text="نوع هزینه" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+      <TextObject Name="Text31" Left="132.3" Top="37.8" Width="94.5" Height="28.35" Border.Lines="All" Text="تاریخ هزینه" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+      <TextObject Name="Text32" Left="9.45" Top="37.8" Width="122.85" Height="28.35" Border.Lines="All" Text="مبلغ هزینه" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+      <TextObject Name="Text33" Left="661.5" Top="37.8" Width="47.25" Height="28.35" Border.Lines="All" Text="ردیف" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+      <DataBand Name="Data3" Top="187.55" Width="718.2" Height="18.9" DataSource="PaymentDamageFileDetail">
+        <TextObject Name="Text20" Left="9.45" Width="122.85" Height="18.9" Border.Lines="All" Text="[PaymentDamageFileDetail.RequestedAmount]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" VertAlign="Center" RightToLeft="true" WordWrap="false" Font="Arial, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text34" Left="661.5" Width="47.25" Height="18.9" Border.Lines="All" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+        <TextObject Name="Text35" Left="567" Width="94.5" Height="18.9" Border.Lines="All" Text="[PaymentDamageFileDetail.ReceiptNumber]" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+        <TextObject Name="Text36" Left="226.8" Width="340.2" Height="18.9" Border.Lines="All" Text="[PaymentDamageFileDetail.DamageItemName]" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+        <TextObject Name="Text37" Left="132.3" Width="94.5" Height="18.9" Border.Lines="All" Text="[PaymentDamageFileDetail.PersianDamageDate]" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+        <Sort>
+          <Sort Expression="[PaymentDamageFileDetail.PersianDamageDate]"/>
+        </Sort>
+      </DataBand>
+      <Sort>
+        <Sort Expression="[Payment.PersianPaymentDate]"/>
+      </Sort>
+    </DataBand>
+    <DataBand Name="Data2" Top="252.25" Width="718.2" Height="18.9" DataSource="DamageFileDetail">
+      <TextObject Name="Text44" Left="661.5" Width="47.25" Height="18.9" Border.Lines="All" Text="[Row#]" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+      <TextObject Name="Text45" Left="595.35" Width="66.15" Height="18.9" Border.Lines="All" Text="[DamageFileDetail.ReceiptNumber]" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+      <TextObject Name="Text46" Left="387.45" Width="207.9" Height="18.9" Border.Lines="All" Text="[DamageFileDetail.DamageItemName]" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+      <TextObject Name="Text47" Left="311.85" Width="75.6" Height="18.9" Border.Lines="All" Text="[DamageFileDetail.PersianDamageDate]" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+      <TextObject Name="Text48" Left="217.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[DamageFileDetail.RequestedAmount]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+      <TextObject Name="Text49" Left="122.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[DamageFileDetail.DamageFileStateName]" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+      <TextObject Name="Text51" Left="9.45" Width="113.4" Height="18.9" Border.Lines="All" Text="[DamageFileDetail.Description]" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+      <DataHeaderBand Name="DataHeader2" Top="210.45" Width="718.2" Height="37.8">
+        <TextObject Name="Text42" Left="661.5" Top="9.45" Width="47.25" Height="28.35" Border.Lines="All" Text="ردیف" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+        <TextObject Name="Text38" Left="595.35" Top="9.45" Width="66.15" Height="28.35" Border.Lines="All" Text="شماره رسید" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+        <TextObject Name="Text39" Left="387.45" Top="9.45" Width="207.9" Height="28.35" Border.Lines="All" Text="نوع هزینه" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+        <TextObject Name="Text40" Left="311.85" Top="9.45" Width="75.6" Height="28.35" Border.Lines="All" Text="تاریخ هزینه" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+        <TextObject Name="Text41" Left="217.35" Top="9.45" Width="94.5" Height="28.35" Border.Lines="All" Text="مبلغ هزینه" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+        <TextObject Name="Text43" Left="122.85" Top="9.45" Width="94.5" Height="28.35" Border.Lines="All" Text="وضعیت" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+        <TextObject Name="Text50" Left="9.45" Top="9.45" Width="113.4" Height="28.35" Border.Lines="All" Text="شرح" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
+      </DataHeaderBand>
+      <Sort>
+        <Sort Expression="[DamageFileDetail.PersianDamageDate]"/>
+      </Sort>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="275.15" Width="718.2" Height="28.35"/>
+  </ReportPage>
+</Report>
