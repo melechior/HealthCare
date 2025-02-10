@@ -69,8 +69,8 @@ $(document).ready(function () {
                             } else {
                                 Swal.fire({
                                     icon: 'success',
-                                    title: 'ذخیره شد!',
-                                    text: 'ردیف مورد نظر شما با موفقیت ذخیره شد.',
+                                    title: 'آماده سازی فایل!',
+                                    text: 'فایل به درستی آماده شده است لطفا صبر کنید به صورت خودکار دانلود شود',
                                     confirmButtonText: 'باشه',
                                     customClass: {
                                         confirmButton: 'btn btn-success waves-effect waves-light'

@@ -5,6 +5,7 @@ using HealthCare.Core.Domains.Payments.Queries;
 using HealthCare.Core.Domains.Payments.QueryViews;
 using HealthCare.Framework.Paging;
 using HealthCare.Framework.Queries;
+using HealthCare.Framework.Resources;
 using HealthCare.Infrastructures.Shared.Enums;
 using HealthCare.WebSite.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -82,10 +83,26 @@ public class DetailsController : BaseController
         var damageFileDetailsByPersons =
             QueryDispatcher.Dispatch<QueryResult<List<DamageFileDetailByPendingStateQueryView>>>(query);
 
-        var paymentIds = damageFileDetailsByPersons.QueryView
-            .Where(x => x.PaymentId.HasValue)
-            .DistinctBy(x => x.PaymentId)
-            .Select(x => x.PaymentId!.Value).ToList();
+        if (damageFileDetailsByPersons.QueryView.Count == 0)
+        {
+            return Json(new QueryResult<List<DamageFileDetailByPendingStateQueryView>>
+            {
+                Failed = true,
+                ResultMessages = new List<ResultMessage>
+                {
+                    new ResultMessage
+                    {
+                        MessageType = MessageType.Danger,
+                        Message = "ردیفی برای چاپ یافت نشد"
+                    }
+                }
+            });
+        }
+
+            var paymentIds = damageFileDetailsByPersons.QueryView
+                .Where(x => x.PaymentId.HasValue)
+                .DistinctBy(x => x.PaymentId)
+                .Select(x => x.PaymentId!.Value).ToList();
 
         var payments = QueryDispatcher.Dispatch<QueryResult<List<PaymentByPaymentIdQueryView>>>(
             new PaymentByPaymentIdQuery
