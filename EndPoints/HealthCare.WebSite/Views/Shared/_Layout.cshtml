@@ -61,7 +61,7 @@
             <!-- Menu -->
             <aside class="layout-menu menu-vertical menu bg-menu-theme" id="layout-menu">
                 <div class="app-brand demo">
-                        <a class="app-brand-link" href="Details">
+                    <a class="app-brand-link" href="Details">
                             <span class="app-brand-logo demo">
                                 <img src="../../assets/img/Logo/Logo.png" alt="Logo"/>
                             </span>
@@ -74,7 +74,7 @@
                 </div>
                 <div class="menu-inner-shadow"></div>
                 <ul class="menu-inner py-1">
-                   @*  <li class="menu-item">
+                    @*  <li class="menu-item">
                         <a class="menu-link" href="Dashboard">
                             <div>داشبورد</div>
                         </a>
@@ -84,23 +84,23 @@
                             <div>اطلاعات تکمیلی</div>
                         </a>
                     </li>
-                        <li class="menu-item">
-                            <a class="menu-link" href="PersonageReport">
-                                <div>گزارش پرداختی</div>
-                            </a>
-                        </li>
+                    @* <li class="menu-item"> *@
+                    @*     <a class="menu-link" href="PersonageReport"> *@
+                    @*         <div>گزارش پرداختی</div> *@
+                    @*     </a> *@
+                    @* </li> *@
                     <!-- Reset Password -->
                     <li class="menu-item">
                         <a class="menu-link" href="ChangePass">
                             <div>تغییر رمز عبور</div>
                         </a>
                     </li>
-                        <li class="menu-item">
-                            <a class="menu-link" href="Login/Logout">
-                                <div>خروج</div>
-                            </a>
-                        </li>
-                        <!-- Reset Password -->
+                    <li class="menu-item">
+                        <a class="menu-link" href="Login/Logout">
+                            <div>خروج</div>
+                        </a>
+                    </li>
+                    <!-- Reset Password -->
                 </ul>
             </aside>
             <!-- Menu -->
@@ -120,7 +120,7 @@
             </nav>
             <!--   Navbar-->
             <!-- Content wrapper -->
-            <div class="content-wrapper">
+            <div class="content-wrapper" id="blockUiForm">
                 @RenderBody()
             </div>
             <footer class="border-top footer text-muted">
@@ -167,13 +167,14 @@
 <script src="../../assets/vendor/libs/datatables-bs5/i18n/fa.js"></script>
 <script src="../../assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
 
- 
+
 <!-- Flat Picker -->
 <script src="../../assets/vendor/libs/moment/moment.js"></script>
 <script src="../../assets/libs/jdate/jdate.js"></script>
 <script src="../../assets/libs/flatpickr/flatpickr-jalali.js"></script>
 <script src="../../assets/libs/flatpickr/l10n/fa.js"></script>
 <script src="../../assets/js/pages-js/mainPage.js"></script>
+<script src="../../assets/vendor/libs/block-ui/block-ui.js"></script>
 <script src="../../assets/js/main-toast.js"></script>
 @await RenderSectionAsync(name: "js", required: false);
 </body>

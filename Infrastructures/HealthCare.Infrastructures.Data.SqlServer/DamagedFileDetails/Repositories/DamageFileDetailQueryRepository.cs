@@ -167,6 +167,58 @@ public class DamageFileDetailQueryRepository(HealthCareDbContext context) : IDam
         return result;
     }
 
+    public List<DamageFileDetailDto> GetByFilter(long? personId, List<DamageFileState>? states,
+        string search, DateTime? fromDate, DateTime? toDateTime)
+    {
+        var fileDetailStatesSpecification = new DamageFileDetailStatesSpecification(states);
+        var receiptNumberSpecification = new DamageFileDetailReceiptNumberSpecification(search);
+        var detailByPersonSpecification = new DamageFileDetailByPersonSpecification(personId);
+        var sendingDateSpecification = new DamageFileDetailSendingDateSpecification(fromDate, toDateTime);
+
+        return context.DamageFileDetails
+            .Where(fileDetailStatesSpecification.IsSatisfied()
+                .And(receiptNumberSpecification.IsSatisfied())
+                .And(detailByPersonSpecification.IsSatisfied())
+                .And(sendingDateSpecification.IsSatisfied()))
+            .Select(y => new DamageFileDetailDto
+            {
+                Id = y.Id,
+                // InsuranceCompanyName = y.ContractItem == null
+                //     ? ""
+                //     : y.ContractItem.InsuranceCompany.Name,
+                //ContractItemId = y.ContractItemId,
+                Description = y.Description!,
+                RequestedAmount = y.RequestedAmount,
+                DamageFileState = y.DamageFileState,
+                DamageDate = y.DamageDate,
+                PersianDamageDate = y.DamageDate.GeorgianDateToPersianDate(),
+                DamageFileStateName = EnumHelper<DamageFileState>.GetDisplayValue(y.DamageFileState),
+                //DamageItemId = y.DamageItemId,
+                DamageItemName = y.DamageItem,
+                SendPersianDate = y.SendToInsuranceDate == null
+                    ? ""
+                    : y.SendToInsuranceDate.GeorgianDateToPersianDate(),
+                PaymentAmount = y.PaymentDamageFiles.Any() ? y.PaymentDamageFiles.First().Payment.Amount : null,
+                PaymentId = y.PaymentDamageFiles.Any() ? y.PaymentDamageFiles.First().PaymentId : null,
+                PaymentDate = y.PaymentDamageFiles.Any() ? y.PaymentDamageFiles.First().Payment.ReceiptDate : null,
+                PaymentPersianDate = y.PaymentDamageFiles.Any()
+                    ? y.PaymentDamageFiles.First().Payment.ReceiptDate.GeorgianDateToPersianDate()
+                    : "فاقد پرداخت",
+                Fullname = y.ContractOfPerson.Personage.FirstName + " " + y.ContractOfPerson.Personage.LastName,
+                NationalId = y.ContractOfPerson.Personage.NationalId,
+                DamageFileDto = new DamageFileDto
+                {
+                    Id = y.DamageFile.Id,
+                    CreationDate = y.DamageFile.ReceiptDate,
+                    ReceiptNumber = y.DamageFile.ReceiptNumber,
+                    PersianCreationDate = y.DamageFile.ReceiptDate.GeorgianDateToPersianDate(),
+                    ContractName = y.ContractOfPerson.Contract.Name,
+                    Fullname = $"{y.ContractOfPerson.Personage.FirstName} {y.ContractOfPerson.Personage.LastName}",
+                    ContractNumber = y.ContractOfPerson.Contract.ContractNumber,
+                }
+            }).OrderBy(x => x.Id).ToList();
+    }
+
     // public List<DamageFileDetailDto> GetDamageFileDetailByPersonId(long personId, long contractId)
     // {
     //     return context.DamageFileDetails.Where(x =>

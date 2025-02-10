@@ -26,8 +26,7 @@ public class LoginController : BaseController
     public JsonResult EnterLogin(LoginQuery query)
     {
         var queryResult = QueryDispatcher.Dispatch<QueryResult<LoginQueryView>>(query);
-
-
+        
         if (queryResult.Failed) return Json(queryResult);
         var claims = new List<Claim>
         {

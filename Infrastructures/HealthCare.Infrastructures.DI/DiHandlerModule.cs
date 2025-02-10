@@ -8,17 +8,22 @@ using HealthCare.Core.ApplicationServices.Users.QueryHandlers;
 using HealthCare.Core.Domains.Users.Repositories;
 using HealthCare.Core.ApplicationServices.ContractOfPersons.QueryHandlers;
 using HealthCare.Core.ApplicationServices.DamagedFileDetails.QueryHandlers;
+using HealthCare.Core.ApplicationServices.TemplateFolders.QueryHandlers;
 using HealthCare.Core.ApplicationServices.Users.CommandHandlers;
+using HealthCare.Core.Domain.Payments.Repositories;
 using HealthCare.Core.Domains.ContractOfPersons.Queries;
 using HealthCare.Core.Domains.ContractOfPersons.QueryViews;
 using HealthCare.Core.Domains.DamagedFileDetails.Queries;
 using HealthCare.Core.Domains.DamagedFileDetails.QueryViews;
 using HealthCare.Core.Domains.DamagedFileDetails.Repositories;
+using HealthCare.Core.Domains.Payments.Queries;
+using HealthCare.Core.Domains.Payments.QueryViews;
 using HealthCare.Core.Domains.Users.Commands;
 using HealthCare.Framework.Paging;
 using HealthCare.Infrastructures.Data.SqlServer;
 using HealthCare.Infrastructures.Data.SqlServer.ContractOfPersons.Repositories;
 using HealthCare.Infrastructures.Data.SqlServer.DamagedFileDetails.Repositories;
+using HealthCare.Infrastructures.Data.SqlServer.Payments.Repositories;
 using HealthCare.Infrastructures.Data.SqlServer.Users.Repositories;
 
 namespace HealthCare.Infrastructures.DI;
@@ -48,6 +53,9 @@ public class DiHandlerModule : Module
 
         builder.RegisterType<DamageFileDetailQueryRepository>().As<IDamagedFileDetailQueryRepository>()
             .InstancePerDependency();
+        
+        builder.RegisterType<PaymentQueryRepository>().As<IPaymentQueryRepository>()
+            .InstancePerDependency();
 
         #endregion
 
@@ -62,7 +70,7 @@ public class DiHandlerModule : Module
             .InstancePerDependency();
 
         builder.RegisterType<ResetPasswordCommandHandler>().As<CommandHandler<ResetPasswordCommand>>()
-    .InstancePerDependency();
+            .InstancePerDependency();
 
         builder.RegisterType<GetUserByFilterQueryHandler>()
             .As<IQueryHandler<UserByFilterQuery, QueryResult<PagedQueryResult<UserByFilterQueryView>>>>()
@@ -89,6 +97,19 @@ public class DiHandlerModule : Module
             .As<IQueryHandler<DamageFileDetailByStateQuery,
                 QueryResult<PagedQueryResult<DamageFileDetailByStateQueryView>>>>()
             .InstancePerDependency();
+
+        builder.RegisterType<DamageFileDetailByPendingStateQueryHandler>()
+            .As<IQueryHandler<DamageFileDetailByPendingStateQuery,
+                QueryResult<List<DamageFileDetailByPendingStateQueryView>>>>()
+            .InstancePerDependency();
+
+        #endregion
+
+        builder.RegisterType<PaymentByPaymentIdQueryHandler>()
+            .As<IQueryHandler<PaymentByPaymentIdQuery, QueryResult<List<PaymentByPaymentIdQueryView>>>>()
+            .InstancePerDependency();
+
+        #region Payments
 
         #endregion
 

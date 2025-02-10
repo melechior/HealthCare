@@ -1,3 +1,4 @@
+using HealthCare.Core.Domain.Payments.Repositories;
 using HealthCare.Core.Domains.DamagedFileDetails.Repositories;
 using HealthCare.Core.Domains.UnitOfWork;
 using HealthCare.Core.Domains.Users.Repositories;
@@ -10,11 +11,12 @@ public class UnitOfWork(
     IUserQueryRepository userQueryRepository,
     IUserCommandRepository userCommandRepository,
     IContractOfPersonQueryRepository contractOfPersonQueryRepository,
-    IDamagedFileDetailQueryRepository damagedFileDetailQueryRepository) : IUnitOfWork
+    IDamagedFileDetailQueryRepository damagedFileDetailQueryRepository,
+    IPaymentQueryRepository paymentQueryRepository) : IUnitOfWork
 {
     public IUserCommandRepository UserCommandRepository { get; } = userCommandRepository;
     public IUserQueryRepository UserQueryRepository { get; } = userQueryRepository;
-    
+
     public IContractCommandRepository ContractCommandRepository { get; }
     public IContractofPersonCommandRepository ContractOfPersonCommandRepository { get; }
     public IContractOfPersonQueryRepository ContractOfPersonQueryRepository { get; } = contractOfPersonQueryRepository;
@@ -25,6 +27,7 @@ public class UnitOfWork(
     public IDamagedFileDetailQueryRepository DamagedFileDetailQueryRepository { get; } =
         damagedFileDetailQueryRepository;
 
+
     public IDamageFileCommandRepository DamageFileCommandRepository { get; }
 
     public IDamageFileQueryRepository DamageFileQueryRepository { get; }
@@ -32,6 +35,11 @@ public class UnitOfWork(
     public IPersonagesCommandRepository PersonagesCommandRepository { get; }
 
     public IPersonagesQueryRepository PersonagesQueryRepository { get; }
+
+    public IDamagedFileDetailQueryRepository DamageFileDetailQueryRepository { get; } =
+        damagedFileDetailQueryRepository;
+
+    public IPaymentQueryRepository PaymentQueryRepository { get; } = paymentQueryRepository;
 
 
     public int Commit()

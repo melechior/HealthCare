@@ -14,9 +14,9 @@
             .FirstOrDefault(x => x.Id == Convert.ToInt64(selectedPersonId));
         if (selectedObject != null)
         {
-            selectedImage = selectedObject.IsMan!.Value
-                  ? "../../assets/img/avatars/profilePicD.png"
-                : "../../assets/img/avatars/profilePicD.png";
+            // selectedImage = selectedObject.IsMan!.Value
+            //       ? "../../assets/img/avatars/profilePicD.png"
+            //     : "../../assets/img/avatars/profilePicD.png";
         }
     }
     else if (string.IsNullOrEmpty(selectedPersonId))
@@ -26,9 +26,9 @@
         if (selectedObject != null)
         {
             Context.Session.SetString("SelectedContractPersonId", selectedObject.Id.ToString());
-            selectedImage = selectedObject.IsMan!.Value
-                ? "../../assets/img/avatars/profilePicD.png"
-                : "../../assets/img/avatars/profilePicD.png";
+            // selectedImage = selectedObject.IsMan!.Value
+            //     ? "../../assets/img/avatars/profilePicD.png"
+            //     : "../../assets/img/avatars/profilePicD.png";
         }
     }
 }
@@ -91,15 +91,15 @@
             <ul class="dropdown-menu LA ">
                 @foreach (var contractPeople in contractPeopleList!)
                 {
-                    var image = contractPeople.IsMan!.Value
-                    ? "../../assets/img/avatars/profilePicD.png"
-                    : "../../assets/img/avatars/profilePicD.png";
+                    // var image = contractPeople.IsMan!.Value
+                    // ? "../../assets/img/avatars/profilePicD.png"
+                    // : "../../assets/img/avatars/profilePicD.png";
                     <li>
                         <a class="dropdown-item customerItem" personalId="@contractPeople.Id">
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
                                     <div class="avatar avatar-online">
-                                        <img alt class="h-auto rounded-circle" src="@image"/>
+                                        <img alt class="h-auto rounded-circle" src="@selectedImage"/>
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">

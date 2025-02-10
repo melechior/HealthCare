@@ -26,7 +26,6 @@
 
     <ItemGroup>
       <Folder Include="PaymentDamageFiles\Repositories\" />
-      <Folder Include="Payments\Repositories\" />
     </ItemGroup>
 
 </Project>

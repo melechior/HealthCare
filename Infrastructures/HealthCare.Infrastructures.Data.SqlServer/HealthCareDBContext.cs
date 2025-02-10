@@ -26,4 +26,5 @@ public class HealthCareDbContext : DbContext
     public DbSet<ContractOfPerson> ContractOfPeople { get; set; }
     public DbSet<DamageFileDetail> DamageFileDetails { get; set; }
     public DbSet<Personage> Personages { get; set; }
+    public DbSet<Payment> Payment { get; set; }
 }

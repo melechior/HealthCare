@@ -13,6 +13,9 @@
     <ItemGroup>
       <Folder Include="ContractOfPersons\CommandHandlers\" />
       <Folder Include="DamagedFileDetails\CommandHandlers\" />
+      <Folder Include="Payments\CommandHandlers\" />
+      <Folder Include="Payments\QueryHandlers\" />
+      <Folder Include="TemplateFolders\CommandHandlers\" />
     </ItemGroup>
 
 </Project>

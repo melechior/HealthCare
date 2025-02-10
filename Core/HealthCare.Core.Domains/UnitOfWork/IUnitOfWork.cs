@@ -1,4 +1,5 @@
-﻿using HealthCare.Core.Domains.DamagedFileDetails.Repositories;
+﻿using HealthCare.Core.Domain.Payments.Repositories;
+using HealthCare.Core.Domains.DamagedFileDetails.Repositories;
 using HealthCare.Core.Domains.Users.Repositories;
 
 namespace HealthCare.Core.Domains.UnitOfWork;
@@ -18,6 +19,8 @@ public interface IUnitOfWork
     IDamageFileQueryRepository DamageFileQueryRepository{get;}
     IPersonagesCommandRepository PersonagesCommandRepository{get;}
     IPersonagesQueryRepository PersonagesQueryRepository{get;}
+    
+    IPaymentQueryRepository PaymentQueryRepository{get;}
     
     int Commit();
 }

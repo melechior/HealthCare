@@ -15,7 +15,9 @@ public interface IDamagedFileDetailQueryRepository
 
     PagedQueryResult<DamageFileDetailDto> GetByFilter(long? personId, List<DamageFileState>? states, string search,
         int pageIndex, int pageSize);
-    
+
+    List<DamageFileDetailDto> GetByFilter(long? personId, List<DamageFileState>? states,
+        string search, DateTime? fromDate, DateTime? toDateTime);
     //IList<Contract> GetByFilter();
     //List<ContractInfoDto> GetContractInfo(long? contractId);
     //List<DamageFileDetailDto> GetDamageFileDetailByPersonId(long personId,long contractId);

@@ -17,7 +17,6 @@
       <Folder Include="PaymentDamageFiles\Queries\" />
       <Folder Include="PaymentDamageFiles\Repositories\" />
       <Folder Include="Payments\Dtos\" />
-      <Folder Include="Payments\Repositories\" />
     </ItemGroup>
 
 </Project>

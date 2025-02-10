@@ -1,3 +1,4 @@
+var lockForm = $("#blockUiForm");
 $(document).ready(function () {
     $('#damage_file_id').DataTable({
         ajax: {
@@ -16,7 +17,6 @@ $(document).ready(function () {
             {data: 'persianDamageDate'},
             {data: 'requestedAmount', render: $.fn.dataTable.render.number(',', '.', 0, '')},
             {data: 'damageFileStateName'},
-            {data: ''}
         ],
         columnDefs: [
             {
@@ -36,46 +36,69 @@ $(document).ready(function () {
             {
                 responsivePriority: 1,
                 targets: 1
-            },
-            {
-                // Actions
-                targets: -1,
-                title: 'عملیات',
-                orderable: false,
-                searchable: false,
-                render: function (data, type, full, meta) {
-                    let buttons = "";
-                    // '<a href="javascript:ViewDamageFileDetailFiles(' + full["id"] + ');" class="btn btn-sm btn-icon item-edit" data-bs-toggle="tooltip" title="مشاهده اسناد"><i class="text-primary ti ti-eye"></i></a>' +
-                    // '<a href="javascript:ViewCommentDamageFileDetailFiles(' + full["id"] + ')" class="btn btn-sm btn-icon item-edit" data-bs-toggle="tooltip" title="مشاهده گردش"><i class="text-primary ti ti-timeline"></i></a>' +
-                    // '<a href="javascript:NotificationDamageFileDetail(' + full["id"] + ')" class="btn btn-sm btn-icon item-edit" data-bs-toggle="tooltip" title="ثبت توضیحات"><i class="text-primary ti ti-notification"></i></a>';
-                    if (full['damageFileState'] === 10) {
-                        buttons += '<a href="javascript:show_payment(' + full["id"] + ')" class="btn btn-sm btn-icon item-edit" data-bs-toggle="tooltip" title="مشاهده پرداخت"><i class="text-primary ti ti-report-money"></i></a>';
-                    }
-                    // else {
-                    //     buttons += '<a href="javascript:goToDefect(' + full["id"] + ')" class="btn btn-sm btn-icon item-edit" data-bs-toggle="tooltip" title="ثبت نقص پرونده"><i class="text-primary ti ti-certificate-2-off"></i></a>' +
-                    //         '<a href="javascript:goToReject(' + full["id"] + ')" class="btn btn-sm btn-icon item-edit" data-bs-toggle="tooltip" title="ثبت مردودی پرونده"><i class="text-primary ti ti-ban"></i></a>';
-                    // }
-                    return buttons;
-                }
             }
         ],
         order: [[2, 'desc']],
-        //dom: '<"card-header flex-column flex-md-row"<"head-label text-center"><"dt-action-buttons text-end pt-3 pt-md-0"B>><"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6 d-flex justify-content-center justify-content-md-end"f>>t<"row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
+        dom: '<"card-header flex-column flex-md-row"<"head-label text-center"><"dt-action-buttons text-end pt-3 pt-md-0"B>><"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6 d-flex justify-content-center justify-content-md-end"f>>t<"row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
         displayLength: 10,
         lengthMenu: [10, 25, 50, 75, 100],
         buttons: [
-            // {
-            //     text: '<i class="ti ti-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">افزودن قرارداد</span>',
-            //     className: 'create-new btn btn-primary waves-effect waves-light',
-            // }
+            {
+                text: '<i class="ti ti-printer me-md-1"></i><span class="d-md-inline-block d-none">چاپ گزارش</span>',
+                className: 'btn btn-primary waves-effect waves-light',
+                action: function (e, dt, button, config) {
+                    lockForm.block({
+                        message: '<div class="spinner-border text-white" role="status"></div>',
+                        timeout: 1000,
+                        css: {
+                            backgroundColor: 'transparent',
+                            border: '0'
+                        },
+                        overlayCSS: {
+                            opacity: 0.5
+                        }
+                    });
+                    
+                    $.ajax({
+                        url: "/Details/Print/",
+                        type: "POST",
+                        success: function (res) {
+                            lockForm.unblock();
+                            if (res.failed) {
+                                toast(res.resultMessages);
+                            } else {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'ذخیره شد!',
+                                    text: 'ردیف مورد نظر شما با موفقیت ذخیره شد.',
+                                    confirmButtonText: 'باشه',
+                                    customClass: {
+                                        confirmButton: 'btn btn-success waves-effect waves-light'
+                                    }
+                                }).then(
+                                    function () {
+                                        lockForm.unblock();
+                                        let a = document.createElement("a"); //Create <a>
+                                        a.href = "data:application/pdf;base64," + res.fileSource; //Image Base64 Goes here
+                                        a.download = res.fileName; //File name Here
+                                        a.click();
+                                    }
+                                );
+                            }
+                        },
+                        error: function (xhr) {
+                            lockForm.unblock();
+                            toastr.error("خطای داخلی ، با واحد فنی تماس بگیرید", 'خطا');
+                        }
+                    });
+                }
+            }
         ],
         destroy: true,
-        dom: '<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6 d-flex justify-content-center justify-content-md-end"f>>t<"row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
         responsive: {
             details: {
                 display: $.fn.dataTable.Responsive.display.modal({
                     header: function (row) {
-                        debugger
                         var data = row.data();
                         return 'جزئیات ' + data['contractNumber'];
                     }

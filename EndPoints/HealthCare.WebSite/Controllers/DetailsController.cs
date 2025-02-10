@@ -1,5 +1,8 @@
-﻿using HealthCare.Core.Domains.DamagedFileDetails.Queries;
+﻿using FastReport;
+using HealthCare.Core.Domains.DamagedFileDetails.Queries;
 using HealthCare.Core.Domains.DamagedFileDetails.QueryViews;
+using HealthCare.Core.Domains.Payments.Queries;
+using HealthCare.Core.Domains.Payments.QueryViews;
 using HealthCare.Framework.Paging;
 using HealthCare.Framework.Queries;
 using HealthCare.Infrastructures.Shared.Enums;
@@ -58,6 +61,51 @@ public class DetailsController : BaseController
             recordsTotal = damageFiles.QueryView.TotalCount,
             recordsFiltered = damageFiles.QueryView.TotalCount,
             data = damageFiles.QueryView.Data,
+        });
+    }
+
+    [Authorize]
+    [HttpPost]
+    public IActionResult Print()
+    {
+        var contractPersonId = HttpContext.Session.GetString("SelectedContractPersonId");
+        if (contractPersonId == null)
+        {
+            return Redirect("/");
+        }
+
+        var query = new DamageFileDetailByPendingStateQuery
+        {
+            PersonId = Convert.ToInt64(contractPersonId),
+        };
+
+        var damageFileDetailsByPersons =
+            QueryDispatcher.Dispatch<QueryResult<List<DamageFileDetailByPendingStateQueryView>>>(query);
+
+        var paymentIds = damageFileDetailsByPersons.QueryView
+            .Where(x => x.PaymentId.HasValue)
+            .DistinctBy(x => x.PaymentId)
+            .Select(x => x.PaymentId!.Value).ToList();
+
+        var payments = QueryDispatcher.Dispatch<QueryResult<List<PaymentByPaymentIdQueryView>>>(
+            new PaymentByPaymentIdQuery
+            {
+                PaymentIds = paymentIds
+            });
+
+        var memory = new ReportGenerator().MakeReport(damageFileDetailsByPersons.QueryView.ToList(),
+            payments.QueryView.ToList());
+
+        if (memory == null)
+        {
+            return NotFound();
+        }
+
+        return Json(new
+        {
+            //FileName = $"Receipt{queryResult.QueryView.ReceiptNumber}.pdf",
+            FileName = $"PrintDamage-{damageFileDetailsByPersons.QueryView.First().NationalId}.pdf",
+            FileSource = Convert.ToBase64String(memory.ToArray())
         });
     }
 }
