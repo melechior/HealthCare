@@ -200,6 +200,7 @@ public class DamageFileDetailQueryRepository(HealthCareDbContext context) : IDam
                     : y.SendToInsuranceDate.GeorgianDateToPersianDate(),
                 PaymentAmount = y.PaymentDamageFiles.Any() ? y.PaymentDamageFiles.First().Payment.Amount : null,
                 PaymentId = y.PaymentDamageFiles.Any() ? y.PaymentDamageFiles.First().PaymentId : null,
+                ShebaNumber = y.PaymentDamageFiles.Any() ? y.PaymentDamageFiles.First().Payment.ShebaNumber : null,
                 PaymentDate = y.PaymentDamageFiles.Any() ? y.PaymentDamageFiles.First().Payment.ReceiptDate : null,
                 PaymentPersianDate = y.PaymentDamageFiles.Any()
                     ? y.PaymentDamageFiles.First().Payment.ReceiptDate.GeorgianDateToPersianDate()

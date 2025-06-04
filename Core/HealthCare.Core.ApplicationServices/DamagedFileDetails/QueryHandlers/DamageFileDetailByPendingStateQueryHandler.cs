@@ -48,6 +48,7 @@ public class DamageFileDetailByPendingStateQueryHandler(IUnitOfWork unitOfWork)
                     : x.DamageItemName,
                 ContractNumber = x.DamageFileDto.ContractNumber,
                 PaymentAmount = x.PaymentAmount,
+                ShebaNumber = x.ShebaNumber,
                 PaymentDate = x.PaymentDate,
                 PaymentId = x.PaymentId,
                 PaymentPersianDate = x.PaymentPersianDate

@@ -20,6 +20,7 @@ public class DamageFileDetailDto : Dto
     public long? ContractItemId { get; set; }
     public decimal? PaymentAmount { get; set; }
     public long? PaymentId { get; set; }
+    public string? ShebaNumber { get; set; }
     public DateTime? PaymentDate { get; set; }
     public string PaymentPersianDate { get; set; } = "";
     public string SendPersianDate { get; set; } = "";

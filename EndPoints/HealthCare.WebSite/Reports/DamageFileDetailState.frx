@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="01/26/2025 19:26:56" ReportInfo.Modified="01/31/2025 11:31:45" ReportInfo.CreatorVersion="2025.1.0.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/26/2025 19:26:56" ReportInfo.Modified="06/04/2025 22:05:24" ReportInfo.CreatorVersion="2025.2.0.0">
   <Dictionary>
     <BusinessObjectDataSource Name="DamageFileDetail" ReferenceName="DamageFileDetailRef" DataType="System.Int32" Enabled="true">
       <Column Name="Id" DataType="System.Int64"/>
@@ -28,6 +28,7 @@
       <Column Name="ReceiptNumber" DataType="System.String"/>
       <Column Name="PersianPaymentDate" DataType="System.String"/>
       <Column Name="Amount" DataType="System.Decimal"/>
+      <Column Name="ShebaNumber" DataType="System.String"/>
     </BusinessObjectDataSource>
     <Relation Name="Payment_PaymentDamageFileDetail" ParentDataSource="Payment" ChildDataSource="PaymentDamageFileDetail" ParentColumns="Id" ChildColumns="PaymentId" Enabled="true"/>
     <Parameter Name="NationalId" DataType="System.String" AsString=""/>
@@ -46,7 +47,7 @@
       <TextObject Name="Text52" Left="9.45" Top="75.6" Width="189" Height="28.35" Text="صفحه  [Page#] از [TotalPages#]" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
     </PageHeaderBand>
     <DataBand Name="Data1" Top="116.07" Width="718.2" Height="66.15" DataSource="Payment">
-      <TextObject Name="Text19" Left="179.55" Top="9.45" Width="529.2" Height="28.35" Border.Lines="All" Text="مبلغ پرداختی :[FormatNumber([PaymentDamageFileDetail.Payment.Amount],0)] " Format="Currency" Format.UseLocale="true" Format.DecimalDigits="0" VertAlign="Center" RightToLeft="true" WordWrap="false" Font="Arial, 10pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text19" Left="179.55" Top="9.45" Width="529.2" Height="28.35" Border.Lines="All" Text="مبلغ پرداختی :[FormatNumber([PaymentDamageFileDetail.Payment.Amount],0)] ([PaymentDamageFileDetail.Payment.ShebaNumber])" Format="Currency" Format.UseLocale="true" Format.DecimalDigits="0" VertAlign="Center" RightToLeft="true" WordWrap="false" Font="Arial, 10pt" Trimming="EllipsisCharacter"/>
       <TextObject Name="Text28" Left="9.45" Top="9.45" Width="170.1" Height="28.35" Border.Lines="All" Text="تاریخ واریز : [PaymentDamageFileDetail.Payment.PersianPaymentDate]" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
       <TextObject Name="Text29" Left="567" Top="37.8" Width="94.5" Height="28.35" Border.Lines="All" Text="شماره رسید" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>
       <TextObject Name="Text30" Left="226.8" Top="37.8" Width="340.2" Height="28.35" Border.Lines="All" Text="نوع هزینه" HorzAlign="Center" VertAlign="Center" RightToLeft="true" Font="Arial, 10pt"/>

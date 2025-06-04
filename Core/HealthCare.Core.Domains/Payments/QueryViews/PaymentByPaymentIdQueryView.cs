@@ -8,5 +8,6 @@ namespace HealthCare.Core.Domains.Payments.QueryViews
         public string ReceiptNumber { get; set; }
         public string PersianPaymentDate { get; set; }
         public decimal Amount { get; set; }
+        public string? ShebaNumber { get; set; }
     }
 }

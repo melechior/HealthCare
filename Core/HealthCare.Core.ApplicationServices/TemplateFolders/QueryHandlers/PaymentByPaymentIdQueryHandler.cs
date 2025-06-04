@@ -39,6 +39,7 @@ public class PaymentByPaymentIdQueryHandler(IUnitOfWork unitOfWork)
                 Amount = x.Amount,
                 ReceiptNumber = x.ReceiptNumber,
                 PersianPaymentDate = x.ReceiptDate.GeorgianDateToPersianDate(),
+                ShebaNumber = x.ShebaNumber
             }).ToList();
         }
         catch (Exception ex)

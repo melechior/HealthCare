@@ -28,5 +28,6 @@ namespace HealthCare.Core.Domains.DamagedFileDetails.QueryViews
         public DateTime? PaymentDate { get; set; }
         public string PaymentPersianDate { get; set; } = "";
         public string SendPersianDate { get; set; } = "";
+        public string? ShebaNumber { get; set; }
     }
 }
